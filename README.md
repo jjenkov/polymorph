@@ -47,3 +47,7 @@ in your own systems.
 
 The Polymorph toolkits also provide proof-of-concept implementations of many of the Polymorph technologies
 (e.g. standards).
+
+Here is the first toolkit with Java implementations:
+
+(https://github.com/jjenkov/polymorph-tools-java)
