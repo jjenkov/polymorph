@@ -9,6 +9,59 @@ The Polymorph Personal Compute Platform is intended to consist of the following 
 3) Polymorph Fabric
 4) Polymorph Toolkit(s)
 
+Each of these major parts are explained further down this document.
+
+
+## Polymorph Development Plan
+These are the nearest development goals for the Polymorph project:
+
+Next:
+- PDL to PDE converter.
+- Specify Polymorph VM
+- Specify Polymorph VM instruction set
+- Specify Polymorph VM machine code (binary representation of instruction set)
+- Specify Polymorph VM assembly language (textual representation of instruction set)
+
+Later:
+- Polymorph Human Interface (PHI) - first functions defined
+- Polymorph Human Interface (PHI) - first draft
+- Polymorph Fabric - first functions defined.
+- Polymorph Fabric - first draft
+- Stream operations for appending to a stream
+- Stream operations for reading from a stream from a specific offset
+- Stream operations for querying a stream (more advanced than from a specific offset)
+
+
+Done:
+- PDE to PDL converter - Java class that can convert PDE to PDL.
+- PdeWriter - Java class for writing raw, binary PDE
+- PdeReader - Java class for reading raw, binary PDE
+- Polymorph Data Language (PDL) specification - version 1.0
+- Polymorph Data Encoding (PDE) specification - version 1.0
+
+
+## Polymorph Innovations
+To achieve the vision of the Polymorph project - several innovations have been necessary.
+Several of these innovations can be used in small business and enterprise environments too.
+The most important innovations are:
+
+- PDE + PDL provide a much more versatile data format pair than e.g. JSON + BSON. 
+  You can use PDE as message encoding, document encoding, stream encoding, log file encoding, data file encoding
+  configuration file format etc.
+  Since PDE is stream-oriented you can use a PDE file similarly to a Kafka topic, appending records to the file,
+  scanning through records, doing incremental processing, subscribing to new records being added etc.
+ 
+- The Polymorph VM that will be part of Polymorph Tools will enable you to move from a microservices architecture 
+  to a microplatforms architecture.
+
+- Polymorph Human Interface (PHI) will enable you to script the state of itself - giving more control over the
+  user experience to the end user.
+
+- The Polymorph Fabric could easily be used for commercial communication too. 
+
+
+ 
+
 
 ## Polymorph Data Encoding (PDE) + Polymorph Data Language
 Polymorph Data Encoding (PDE) and Polymorph Data Language are two data formats that are used to encode data
