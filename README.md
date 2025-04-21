@@ -1,6 +1,7 @@
 # Polymorph Personal Compute Platform
-The Polymorph platform is a Personal Compute Platform intended to enable individual users to utilize their
-personal computers more fully.
+The Polymorph platform is a Personal Compute Platform intended to enable individual users to better utilize their
+personal computers. This includes supporting common personal computing use cases on the user's local PC - as well as 
+communication with other user's PC. 
 
 The Polymorph Personal Compute Platform is intended to consist of the following core parts:
 
