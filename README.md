@@ -3,6 +3,9 @@ The Polymorph platform is a Personal Compute Platform intended to enable individ
 personal computers. This includes supporting common personal computing use cases on the user's local PC - as well as 
 communication with other user's PC. 
 
+Even though the primary target users are personal users - several of the technologies coming out of the Polymorph
+project can be used for commercial use cases too - both in small companies and in larger enterprises.
+
 
 ## Polymorph Use Cases
 Below is a list of the personal computing use cases that Polymorph could address.
@@ -30,18 +33,9 @@ The use cases below are just ideas.
 - Etc.
 
 To be able to support the above (and future) use cases, the Polymorph Personal Compute Platform needs a set of 
-underlying more general purpose technologies.
+underlying more general purpose technologies. These underlying technologies are explained in more detail under the 
+Polymorph development plan.
 
-## Polymorph Core Parts
-
-The Polymorph Personal Compute Platform is intended to consist of the following core parts:
-
-1) Polymorph Data Encoding (PDE) + Polymorph Data Language
-2) Polymorph Human Interface (PHI)
-3) Polymorph Fabric
-4) Polymorph Toolkit(s)
-
-Each of these major parts are explained further down this document.
 
 
 ## Polymorph Development Plan
@@ -70,6 +64,18 @@ Done:
 - PdeReader - Java class for reading raw, binary PDE
 - Polymorph Data Language (PDL) specification - version 1.0
 - Polymorph Data Encoding (PDE) specification - version 1.0
+
+
+## Polymorph Core Parts
+
+The Polymorph Personal Compute Platform is intended to consist of the following core parts:
+
+1) Polymorph Data Encoding (PDE) + Polymorph Data Language
+2) Polymorph Human Interface (PHI)
+3) Polymorph Fabric
+4) Polymorph Toolkit(s)
+
+Each of these major parts are explained further down this document.
 
 
 ## Polymorph Innovations
