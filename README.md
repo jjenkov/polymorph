@@ -3,10 +3,41 @@ The Polymorph platform is a Personal Compute Platform intended to enable individ
 personal computers. This includes supporting common personal computing use cases on the user's local PC - as well as 
 communication with other user's PC. 
 
+
+## Polymorph Use Cases
+Below is a list of the personal computing use cases that Polymorph could address.
+Exactly which use cases will be addresses and in what sequence - is not yet determined.
+The use cases below are just ideas.
+
+- Presentations (slides)
+- Documents 
+- Recipes (cooking, tech runbooks etc.)
+- Books
+- Spreadsheets
+- Charts
+- Diagrams
+- Lists (shopping lists, todo lists etc.)
+- Notes
+- Photos
+- Audio books
+- Podcasts
+- Music
+- Video
+- Chat
+- Mail
+- Video conferences
+- File sharing / backup
+- Etc.
+
+To be able to support the above (and future) use cases, the Polymorph Personal Compute Platform needs a set of 
+underlying more general purpose technologies.
+
+## Polymorph Core Parts
+
 The Polymorph Personal Compute Platform is intended to consist of the following core parts:
 
 1) Polymorph Data Encoding (PDE) + Polymorph Data Language
-2) Polymorph Human Interface (PHI) 
+2) Polymorph Human Interface (PHI)
 3) Polymorph Fabric
 4) Polymorph Toolkit(s)
 
