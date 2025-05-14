@@ -6,6 +6,10 @@ communication with other user's PC.
 Even though the primary target users are personal users - several of the technologies coming out of the Polymorph
 project can be used for commercial use cases too - both in small companies and in larger enterprises.
 
+Here is an introduction video to the Polymorph Personal Compute Platform:
+
+https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHaDQe&index=2=
+
 
 ## Polymorph Use Cases
 Below is a list of the personal computing use cases that Polymorph could address.
