@@ -10,11 +10,38 @@ Here is an introduction video to the Polymorph Personal Compute Platform:
 
 https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHaDQe&index=2=
 
+## Polymorph Overview
+
+The Polymorph platform consist of multiple parts:
+
+ - Polymorph Player
+ - Polymorph Tools
+ - Polymorph Standards (PDE, PDL etc.)
+ - Polymorph Fabric
+
+The Polymorph Player is a desktop application that provides a lot of general purpose, and special purpose,
+functionality. You activate that functionality by executing scripts that call functions inside the Polymorph Player,
+a bit like running a Java application inside a Java VM. Polymorph Player just provides functionality at a higher
+abstraction level than the Java VM.
+
+The Polymorph Tools are tools that provide lower level functionality. The Polymorph Player uses the Tools internally.
+For instance, the compiler and VM for the script language the Player can execute - are located in the Tools library.
+
+The Polymorph Standards are open standards that are used inside of the Polymorph Platform, but which 
+can also be implemented and used outside of the Polymorph Platform. These standards include the 
+Polymorph Data Encoding (PDE) and Polymorph Data Language (PDL) among others.
+
+The Polymorph Fabric is intended to be a communication fabric via which individual Player apps can 
+communicate with each other - in a peer-to-peer (P2P) fashion.  
+
+Here is a diagram illustrating the intended usage of the Polymorph platform parts:
+
+![Alt text](resources/polymorph-overview.png "a title")
 
 ## Polymorph Use Cases
 Below is a list of the personal computing use cases that Polymorph could address.
 Exactly which use cases will be addresses and in what sequence - is not yet determined.
-The use cases below are just ideas.
+The use cases below are just ideas, so far.
 
 - Presentations (slides)
 - Documents 
@@ -70,18 +97,6 @@ Done:
 - Polymorph Data Encoding (PDE) specification - version 1.0
 
 
-## Polymorph Core Parts
-
-The Polymorph Personal Compute Platform is intended to consist of the following core parts:
-
-1) Polymorph Data Encoding (PDE) + Polymorph Data Language
-2) Polymorph Human Interface (PHI)
-3) Polymorph Fabric
-4) Polymorph Toolkit(s)
-
-Each of these major parts are explained further down this document.
-
-
 ## Polymorph Innovations
 To achieve the vision of the Polymorph project - several innovations have been necessary.
 Several of these innovations can be used in small business and enterprise environments too.
@@ -102,8 +117,6 @@ The most important innovations are:
 - The Polymorph Fabric could easily be used for commercial communication too. 
 
 
- 
-
 
 ## Polymorph Data Encoding (PDE) + Polymorph Data Language
 Polymorph Data Encoding (PDE) and Polymorph Data Language are two data formats that are used to encode data
@@ -123,11 +136,11 @@ You can find the PDE and PDL specifications in their own GitHub repository here:
 (https://github.com/jjenkov/pde-pdl-specification/tree/main)
 
 
-## Polymorph Human Interface (PHI)
-Polymorph Human Interface (PHI) is an application designed to run on desktop computers. 
-PHI is intended to be the human interface to the Polymorph platform. 
+## Polymorph Player
+Polymorph Player is an application designed to run on desktop computers. 
+Polymorph Player is intended to be the human interface to the Polymorph platform. 
 
-PHI will come with a lot of functionality built in that is useful to individual users. 
+Polymorph Player will come with a lot of functionality built in that is useful to individual users. 
 Exactly what that functionality will be - is not fully decided - and it will probably expand over time too. 
 
 
