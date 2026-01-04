@@ -10,13 +10,30 @@ Here is an introduction video to the Polymorph Personal Compute Platform:
 
 https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHaDQe&index=2=
 
-## Polymorph Overview
+## Table of Contents
+ - [Polymorph Overview](#Polymorph-Overview)
+ - [Polymorph Ues Cases](#Polymorph-Use-Cases)
+ - [Polymorph Development Plan](#Polymorph-Development-Plan)
+ - [Polymorph Innovations](#Polymorph-Innovations)
+ - [Polymorph Data Encoding and Polymorph Data Language](#Polymorph-Data-Encoding-and-Polymorph-Data-Language)
+ - [Polymorph Player](#Polymorph-Player)
+ - [Polymorph Fabric](#Polymorph-Fabric)
+ - [Polymorph Tools](#Polymorph-Tools)
 
+## Polymorph Overview
 The Polymorph platform consist of multiple parts:
 
  - Polymorph Player
  - Polymorph Tools
+   - Polymorph PDE reader and writer
+   - Polymorph PDL parser
+   - Polymorph PDL to PDE + PDE to PDL converter
+   - Polymorph VM
  - Polymorph Standards (PDE, PDL etc.)
+   - Polymorph Data Encoding 
+   - Polymorph Data Language
+   - Polymorph VM specification
+   - Polymorph Polyring P2P topology
  - Polymorph Fabric
 
 The Polymorph Player is a desktop application that provides a lot of general purpose, and special purpose,
@@ -118,8 +135,8 @@ The most important innovations are:
 
 
 
-## Polymorph Data Encoding (PDE) + Polymorph Data Language
-Polymorph Data Encoding (PDE) and Polymorph Data Language are two data formats that are used to encode data
+## Polymorph Data Encoding and Polymorph Data Language
+Polymorph Data Encoding (PDE) and Polymorph Data Language (PDL) are two data formats that are used to encode data
 used internally by the other Polymorph parts.
 
 Polymorph Data Encoding (PDE) is a binary encoding that is compact and fast to read and write.
@@ -149,8 +166,8 @@ Polymorph Fabric is a communication fabric that makes it easy for individual use
 exchange data with each other. 
 
 
-## Polymorph Toolkits
-The Polymorph toolkits enable you to use Polymorph technologies outside of the Polymorph platform - 
+## Polymorph Tools
+The Polymorph Tools are toolkits that enable you to use Polymorph technologies outside the Polymorph platform - 
 in your own systems.
 
 The Polymorph toolkits also provide proof-of-concept implementations of many of the Polymorph technologies
