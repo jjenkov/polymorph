@@ -19,7 +19,7 @@ which Polymorph attempts to address.
   - [Composable vs Siloed Media](#Composable-vs-Siloed-Media)
   - [Built-in Functionality-vs-No-Built-in-Functionality](#Built-in-Functionality-vs-No-Built-in-Functionality)
   - [Local Computing vs Remote Computing](#Local-Computing-vs-Remote-Computing)
-  - [Decentralized-Computing-vs-Centralized-Computing]
+  - [Decentralized-Computing-vs-Centralized-Computing](#Decentralized-vs-Centralized-Computing)
 - [Ownership Deficiencies](#Ownership-Deficiencies)
 
 ## Technical Deficiencies
