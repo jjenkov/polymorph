@@ -64,10 +64,16 @@ as a separate process connected to Polymorph Player on the same PC, or runs on a
 ## Polymorph Innovation
 The full ambitions of the Polymorph Platform project cannot be achieved using any existing technologies.
 Web tech cannot get us there. No existing application platforms can get us there. Therefore, the Polymorph project
-needs to invent its own technology stack.
+needs to invent its own technology stack. 
 
 Even though the Polymorph technologies are designed primarily for use within the Polymorph ecosystem,
 several of these technologies can be used outside the Polymorph ecosystem as well.
+
+### Web Technology Deficiencies
+Here is why I do not believe that the current web technology stack can implement what Polymorph wants to achieve: 
+
+[Web Technology Deficiencies](web-technology-deficiencies.md)
+
 
 
 ## Polymorph Technology Overview
