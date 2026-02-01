@@ -14,6 +14,7 @@ which Polymorph attempts to address.
   - [UDP vs TCP](#UDP-vs-TCP)
   - [P2P vs Client-Server](#P2P-vs-Client-Server)
   - [Poor Integration With Local Device](#Poor-Integration-With-Local-Device)
+  - [The DOM is Inflexible and Inefficient](#The-DOM-is-Inflexible-and-Inefficient)
 - [Use Case Deficiencies](#Use-Case-Deficiencies)
   - [Composable vs Siloed Media](#Composable-vs-Siloed-Media)
   - [Built-in Functionality-vs-No-Built-in-Functionality](#Built-in-Functionality-vs-No-Built-in-Functionality)
@@ -94,7 +95,18 @@ with the user's consent (via a file dialog). You cannot allow a web page to just
 e.g. from a certain directory and down - without that file dialog.
 
 
+## The DOM is Inflexible and Inefficient
+Web browsers use a DOM UI model to represent the state of the UI displayed in the browser. This model is in many
+ways inflexible and inefficient.
+
+Polymorph uses a different kind of application state model.  
+
+
 ## Use Case Deficiencies
+The technical deficiencies of web technologies results in a set of use case deficiencies.
+In other words, use cases that web technology does not support well. 
+These use case deficiencies make web technology less versatile.
+
 
 ### Composable vs Siloed Media
 Web tech does not properly support composable media. You can get around it if you are a programmer,
