@@ -24,6 +24,7 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
    - [Roadmap](https://github.com/users/jjenkov/projects/1/views/3)
  - [Polymorph Project Goals](docs/polymorph-project-goals.md)
  - [Polymorph Ues Cases](docs/polymorph-use-cases-and-functionality.md)
+ - [Web Technology Deficiencies](docs/web-technology-deficiencies.md)
  - [Polymorph Innovation](#Polymorph-Innovation)
  - [Polymorph Technology Overview](#Polymorph-Technology-Overview)
  - [Polymorph Player](#Polymorph-Player)
@@ -40,12 +41,6 @@ needs to invent its own technology stack.
 
 Even though the Polymorph technologies are designed primarily for use within the Polymorph ecosystem,
 several of these technologies can be used outside the Polymorph ecosystem as well.
-
-### Web Technology Deficiencies
-Here is why I do not believe that the current web technology stack can implement what Polymorph wants to achieve: 
-
-[Web Technology Deficiencies](web-technology-deficiencies.md)
-
 
 
 ## Polymorph Technology Overview
