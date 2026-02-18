@@ -1,10 +1,16 @@
 # Polymorph Personal Compute Platform
-The Polymorph platform is a Personal Compute Platform intended to enable individual users to better utilize their
-personal computers. This includes supporting common personal computing use cases on the user's local PC - as well as 
-communication with other user's PC. 
 
-Even though the primary target users are personal users - several of the technologies coming out of the Polymorph
-project can be used for commercial use cases too - both in small companies and in larger enterprises.
+The purpose of the Polymorph Personal Compute Platform project is to reimagine what personal computing could look like. 
+
+The project aims at providing a wide variety of common personal computing functionality that is easily accessible
+within a single, coherent, flexible platform.
+
+You can read more about the goals of the Polymorph Personal Compute Platform project here:
+
+[Polymorph Project Goals](docs/polymorph-project-goals.md)
+
+Even though the primary target users are personal users – several of the technologies coming out of the Polymorph
+project can be used for commercial use cases too – both in small companies and in larger enterprises.
 
 Here is an introduction video to the Polymorph Personal Compute Platform:
 
@@ -127,11 +133,23 @@ Exactly what that functionality will be - is not fully decided - and it will pro
 
 
 ## Polymorph Tools
-The Polymorph Tools are toolkits that enable you to use Polymorph technologies outside the Polymorph platform -
-in your own systems.
+Polymorph Tools is a toolkit that provide tools for working with many of the individual Polymorph technologies.
+Polymorph Tools is used inside the Polymorph Player - but you could also use Polymorph Tools outside the
+Polymorph Player - should you want to.
 
 The Polymorph toolkits also provide proof-of-concept implementations of many of the Polymorph technologies
-(e.g. standards).
+(e.g. standards). These POC implementations could be used as basis for implementations in other languages.
+
+Polymorph Tools contains the following major tools:
+
+- Polymorph Data Encoding (PDE) reader.
+- Polymorph Data Encoding (PDE) writer.
+- Polymorph Data Language (PDL) Tokenizer.
+- Polymorph Data Language (PDL) Converter (to PDE).
+- Polymorph Data Encoding (PDE) Converter (to PDL).
+- Polymorph Assembly Compiler (to Polymorph Bincode (PBin)).
+- Polymorph Virtual Machine (executes Bincode (PBin)).
+
 
 Here is the first toolkit with Java implementations:
 
