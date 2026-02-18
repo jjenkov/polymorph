@@ -27,13 +27,7 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
  - [Web Technology Deficiencies](docs/web-technology-deficiencies.md)
  - [Polymorph Technology Overview](docs/polymorph-technology-overview.md)
 
-## Polymorph Innovation
-The full ambitions of the Polymorph Platform project cannot be achieved using any existing technologies.
-Web tech cannot get us there. No existing application platforms can get us there. Therefore, the Polymorph project
-needs to invent its own technology stack. 
 
-Even though the Polymorph technologies are designed primarily for use within the Polymorph ecosystem,
-several of these technologies can be used outside the Polymorph ecosystem as well.
 
 
 
