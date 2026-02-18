@@ -18,6 +18,11 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
 
 
 ## Table of Contents
+ - Polymorph Project Plan
+   - [Task Board](https://github.com/users/jjenkov/projects/1/views/2)
+   - [Task List](https://github.com/users/jjenkov/projects/1/views/4)
+   - [Roadmap](https://github.com/users/jjenkov/projects/1/views/3)
+ - [Polymorph Project Goals](docs/polymorph-project-goals.md)
  - [Polymorph Ues Cases](#Polymorph-Use-Cases)
  - [Polymorph Innovation](#Polymorph-Innovation)
  - [Polymorph Technology Overview](#Polymorph-Technology-Overview)
