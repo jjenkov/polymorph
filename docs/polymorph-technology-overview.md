@@ -37,7 +37,7 @@ communicate with each other - in a peer-to-peer (P2P) fashion.
 
 Here is a diagram illustrating the intended usage of the Polymorph platform parts:
 
-![Alt text](resources/polymorph-overview.png "a title")
+![Alt text](../resources/polymorph-overview.png "a title")
 
 
 ## Polymorph Player
