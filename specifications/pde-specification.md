@@ -25,7 +25,7 @@ All in all, PDE has several features these data formats do not.
 
 See more about the purpose of PDE, and how PDE compares to other data formats, in the README file here:
 
-[README.md](README.md)
+[README.md](../README.md)
 
 
 ## Polymorph Data Language
