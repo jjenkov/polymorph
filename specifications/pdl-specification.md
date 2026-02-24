@@ -3,14 +3,11 @@
 Polymorph Data Language (PDL) is a textual data encoding that is capable of representing the same data types as
 the Polymorph Data Encoding (PDE). You can convert from the binary PDE to PDL, and from PDL to PDE. 
 
-See more about the purpose of PDE in the README file of this repository, here:
+You can read about the Polymorph Data Encoding here:
 
-[README.md](README.md)
+[Polymorph Data Encoding](pde-specification.md)
 
 Polymorph Data Language can also be used by itself as an alternative to CSV, JSON, XML and YAML.
-See more about how PDL compares to other data formats in the README file here:
-
-[README.md](README.md)
 
 
 ## Table of Contents
