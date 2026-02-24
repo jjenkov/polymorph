@@ -27,7 +27,8 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
  - [Web Technology Deficiencies](docs/web-technology-deficiencies.md)
  - [Polymorph Technology Overview](docs/polymorph-technology-overview.md)
  - Polymorph Specifications
-   - [Polymorph Data Encoding](specifications/pde-specification.md) 
+   - [Polymorph Data Encoding (PDE)](specifications/pde-specification.md) 
+   - [Polymorph Data Language (PDL)](specifications/pdl-specification.md) 
 
 
 
