@@ -22,12 +22,19 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
    - [Task Board](https://github.com/users/jjenkov/projects/1/views/2)
    - [Task List](https://github.com/users/jjenkov/projects/1/views/4)
    - [Roadmap](https://github.com/users/jjenkov/projects/1/views/3)
+
+
  - [Polymorph Project Goals](docs/polymorph-project-goals.md)
  - [Polymorph Ues Cases](docs/polymorph-use-cases-and-functionality.md)
  - [Polymorph Technology Overview](docs/polymorph-technology-overview.md)
  - [Polymorph Data Encoding and Polymorph Data Language Introduction](docs/pde-pdl-introduction.md)
+ - [Polymorph Data Language Syntax Design](docs/pdl-syntax-design.md)
+
+
  - Polymorph Specifications
    - [Polymorph Data Encoding (PDE)](specifications/pde-specification.md) 
-   - [Polymorph Data Language (PDL)](specifications/pdl-specification.md) 
+   - [Polymorph Data Language (PDL)](specifications/pdl-specification.md)
+
+   
 - [Web Technology Deficiencies](docs/web-technology-deficiencies.md)
 
