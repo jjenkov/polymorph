@@ -12,14 +12,36 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
 
 ## Table of Contents
 
-- Polymorph Data Language Use Cases
-- Syntax Variations and Performance
-- Syntax Designs
-- Token Type Characters
-- Token Types
+- [Polymorph Data Language Use Cases](#Polymorph-Data-Language-Use-Cases)
+- [Syntax Variations and Performance](#Syntax-Variations-and-Performance)
+- [Tokens and Fields](#Tokens-and-Fields)
+- [Token Structure](#Token-Structure)
+  - [Single Character Tokens](#Single-Character-Tokens)
+  - [Multi-character Tokens](#Multi-character-Tokens)
+  - [Positive Integer Tokens](#Positive-Integer-Tokens)
+  - [Named Tokens](#Named-Tokens)
+- [Token Type Characters](#Token-Type-Characters)
+- [Token Types](#Token-Types)
+  - [Null Values](#Null-Values)
+  - [Comments](#Comments)
+  - [Boolean](#Boolean)
+  - [Integers](#Integers)
+  - [Floating Point Numbers](#Floating-Point-Numbers)
+  - [Bytes](#Bytes)
+  - [ASCII Text](#ASCII-Text)
+  - [UTF-8 Text](#UTF-8-Text)
+  - [UTF Date and Time](#UTC-Date-and-Time)
+  - [ID](#ID)
+  - [Copy](#Copy)
+  - [Reference](#Reference)
+  - [Key](#Key)
+  - [Object](#Object)
+  - [Table](#Table)
+  - [Metadata](#Metadata)
+  - [Named Tokens](#Named-Tokens)
 
 
-## Polymorph Data Language Use Cases 
+## Polymorph Data Language Use Cases
 
 PDL is useful for debug purposes, where data in PDE can be converted to PDL to make the data easier to read.
 
@@ -413,15 +435,15 @@ Here are some example 64 bit floating point tokens:
     /-456.789;
 
 
-### Binary
-A PDL binary token represents binary data encoded using a textual representation. PDL supports 3 different
+### Bytes
+A PDL bytes token represents binary data encoded using a textual representation. PDL supports 3 different
 textual representations for binary data:
 
 1) Hexadecimal encoding
 2) Base64 encoding
 3) UTF-8 encoding
 
-Each of these are represented using a different token type character. Here are some example PDL binary field
+Each of these are represented using a different token type character. Here are some example PDL bytes field
 token examples:
 
     $45A6 34E3;
@@ -436,7 +458,7 @@ The | character is the token type character for binary data encoded using base64
 
 The ^ character is the token type character for binary data encoded using UTF-8 encoding.
 
-All three binary token types use a semicolon as token end character.
+All three bytes token types use a semicolon as token end character.
 
 
 ### ASCII Text
