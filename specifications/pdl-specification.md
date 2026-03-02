@@ -39,6 +39,7 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
   - [Table](#Table)
   - [Metadata](#Metadata)
   - [Named Tokens](#Named-Tokens)
+- [Whitespace](#Whitespace)
 
 
 ## Polymorph Data Language Use Cases
@@ -738,3 +739,15 @@ concatenation named token that could look like this:
 
 This construct could be interpreted by your processor to mean that the 3 nested UTF-8 PDL fields
 should be concatenated into a single UTF-8 PDE field.
+
+
+## Whitespace
+Polymorph Data Language considers all ASCII characters with a decimal value of 32 or lower to be whitespace.
+That includes carriage return, new line and several other non-visible characters.
+
+Note: For now, the ASCII character DEL with the decimal value 127 is not considered whitespace.
+
+Whitespace characters can be located between PDL tokens. Inside a PDL token, whitespace characters are considered
+part of the token.
+
+
