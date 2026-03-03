@@ -835,7 +835,7 @@ Here is a full PDL example showing all of the built-in PDL token and field types
           "Fana; []
         ]
         "Hansel; [
-          .name; .children;
+          .name;   .children;
           "Gordia; []
           "Victor; []
         ]
