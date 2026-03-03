@@ -41,6 +41,8 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
   - [Named Tokens](#Named-Tokens)
 - [Whitespace](#Whitespace)
 - [ASCII With UTF-8 Zones](#ASCII-With-UTF-8-Zones)
+- [Minification](#Minification)
+- [Full PDL Example](#Full-PDL-Example)
 
 
 ## Polymorph Data Language Use Cases
