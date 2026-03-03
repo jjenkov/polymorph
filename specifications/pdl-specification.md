@@ -759,3 +759,20 @@ and UTF-8 tokens use ASCII token type characters (begin characters) and token en
 
 Knowing this is a big help during implementation of a tokenizer.
 
+
+## Minification
+Minification is the process of removing all unnecessary characters from a PDL script. Typically, what is removed
+are all the whitespace characters between the PDL tokens. 
+
+Here is an example of a PDL script that is not yet minified:
+
+    { .field1; "value; .field2; 123; .field3; /123.45; .field4; !1; }
+
+Here is the same example minified:
+
+    {.field1;"value;.field2;123;.field3;/123.45;.field4;!1;}
+
+Tokenizing minified PDL can be faster than tokenizing non-minified PDL, for two reasons.
+First, minified PDL simply has fewer characters to process. Second, you don't need to scan for
+whitespace characters in between the PDL tokens. This removes the loop checking for whitespace characters
+from the tokenization process, making it simpler and faster. 
