@@ -612,10 +612,35 @@ Here are some PDL object fields with nested fields inside:
 
     { .firstName; "Jane; .lastName; "Doe; }
 
-    { .nanme; "John Doe; .birthday; @1999-01-16; }
+    { .name; "John Doe; .birthday; @1999-01-16; }
 
 The fields inside these object fields are key and value tokens representing property names
 and values.
+
+#### Compact Objects
+
+There are no strict rules about what PDL tokens / fields you can nest inside an object.
+The only principle is that a Key field is interpreted as the property name of the following value field / token.
+
+However, you are not required to nest any key fields inside a PDL object. You could leave out the 
+key fields and only include the property values, like this:
+
+    { "John Doe; @1999-01-16; }
+
+You are also allowed to only include the Key tokens if you feel that makes sense. You are also allowed
+to include Key tokens for some properties and not others. 
+
+Such compact object representations require that you know out of the PDL file which properties mean what.
+You could use the sequence of the property values to deduce what property they represent. 
+
+In case of mixing named and unnamed properties (with and without key fields), you might want to 
+put the unnamed properties at the beginning of the object where you can control the sequence and
+then put the named properties after the unnamed properties. That would enable you to make the unnamed properties
+required (so you can rely on their sequence) and the named properties optional (because you have the 
+property names to tell what they represent). For instance:
+
+    { "John Doe; @1999-01-16; .city; "Copenhagen; .country; "Denmark; }
+
 
 
 ### Table
@@ -775,4 +800,59 @@ Here is the same example minified:
 Tokenizing minified PDL can be faster than tokenizing non-minified PDL, for two reasons.
 First, minified PDL simply has fewer characters to process. Second, you don't need to scan for
 whitespace characters in between the PDL tokens. This removes the loop checking for whitespace characters
-from the tokenization process, making it simpler and faster. 
+from the tokenization process, making it simpler and faster.
+
+
+## FULL PDL Example
+
+Here is a full PDL example showing all of the built-in PDL token and field types:
+
+    # single-token comment;
+    *"text1; "text2; "text3; multi-token comment~
+    
+    !; !0; !1;
+    123;
+    %123.45;
+    /123.45;
+    "Hello world;
+    @2030-12-31T23:59:59.999;
+    
+    {.f1; 123; .f2; "val2;}
+    {123; "val2;}
+    
+    [.c1; .c2; .c3;
+     123; "val2; @2023;
+     456; "val5; @2024; ]
+    
+    { .name; "Aya;
+      .children; [
+        .name; .children;
+        "Gretchen; [
+          .name; .children;
+          "Rami; []
+          "Fana; []
+        ]
+        "Hansel; [
+          .name; .children;
+          "Gordia; []
+          "Victor; []
+        ]
+      ]
+    }
+    
+    ;0;
+    { .name; "Parent;
+      .child; {
+        .parent; &0;
+      }
+    }
+    
+    :1;
+    { .name; "mother;
+      .parent; !{;
+      .children; [
+        .name;     .parent;  .children;
+        "child1;   &1;       []
+        "child2;   &1;       []
+      ]
+    }

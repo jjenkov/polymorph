@@ -108,20 +108,20 @@ Using these three rules, I came up with the following syntax for POS0:
       ];
     };
     
-    *id;(;+0;);
+    :0;
     {; .name; "Parent;
       .child; {;
-        .parent; *ref;(;+0;);
+        .parent; &0;
       };
     };
     
-    *id;(;+0;);
+    :1;
     {; .name; "mother;
-      .parent; o;
+      .parent; !{;
       .children; [;
         .name;     .parent;  .children;
-        "child1;  *ref;(;0;);   [;];
-        "child2;  *ref;(;0;);   [;];
+        "child1;   &1;       [;];
+        "child2;   &1;       [;];
       ];
     };
 
@@ -356,20 +356,19 @@ The resulting POS 2 syntax looks like this:
       ]
     }
     
-    *id(0;)
+    ;0;
     { .name; "Parent;
       .child; {
-        .parent; *ref(+0;)
+        .parent; &0;
       }
     }
     
-    *id(+0;)
+    :1;
     { .name; "mother;
-      .parent; o;
+      .parent; !{;
       .children; [
         .name;     .parent;  .children;
-        "child1;  *ref(0;)   []
-        "child2;  *ref(0;)   []
+        "child1;   &1;       []
+        "child2;   &1;       []
       ]
     }
-
