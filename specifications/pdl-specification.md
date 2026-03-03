@@ -40,6 +40,7 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
   - [Metadata](#Metadata)
   - [Named Tokens](#Named-Tokens)
 - [Whitespace](#Whitespace)
+- [ASCII With UTF-8 Zones](#ASCII-With-UTF-8-Zones)
 
 
 ## Polymorph Data Language Use Cases
@@ -750,4 +751,11 @@ Note: For now, the ASCII character DEL with the decimal value 127 is not conside
 Whitespace characters can be located between PDL tokens. Inside a PDL token, whitespace characters are considered
 part of the token.
 
+
+## ASCII With UTF-8 Zones
+A PDL file / stream is considered an ASCII file with UTF-8 zones. All tokens use ASCII characters 
+except UTF-8 tokens and bytes tokens encoded using UTF-8. But even bytes tokens with UTF-8 encoded values,
+and UTF-8 tokens use ASCII token type characters (begin characters) and token end characters.
+
+Knowing this is a big help during implementation of a tokenizer.
 
