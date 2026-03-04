@@ -136,10 +136,13 @@ Here is a simple JSON and PDL object for comparison:
 
     { .field1; "value1; .field2; 123; .field3; /123.45; .field4; !1; }
 
-This slight advantage also holds true when the JSON and PDL is minified, although the difference
+This slight advantage also holds true when the JSON and PDL are minified, although the difference
 is a bit smaller than in the example above. Here are the same examples minified:
 
     {"field1":"value1","field2":123,"field3":123.45,"field4":true}
 
     {.field1;"value1;.field2;123;.field3;/123.45;.field4;!1;}
+
+The major difference comes from the fact PDL objects do not have a colon between property names and values,
+and also not a comma between the property pairs. 
 
