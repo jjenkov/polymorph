@@ -122,3 +122,24 @@ do not get a stream offset.
 
 The field offsets can be used to only read fields from and / or to a given offset. This can be useful
 if you are reprocessing a file / stream, and you have already processed the first N records earlier.
+
+
+## PDL vs. JSON
+At first glance PDL may look slightly more verbose than JSON, because most PDL tokens have both
+a token type character and an explicit token end character. However, when you compare PDL to JSON
+more systematically, PDL is actually in many cases a bit more compact than JSON - especially
+if you use the tabular data structures.
+
+Here is a simple JSON and PDL object for comparison:
+
+    { "field1" : "value1", "field2" : 123, "field3" : 123.45, "field4" : true }
+
+    { .field1; "value1; .field2; 123; .field3; /123.45; .field4; !1; }
+
+This slight advantage also holds true when the JSON and PDL is minified, although the difference
+is a bit smaller than in the example above. Here are the same examples minified:
+
+    {"field1":"value1","field2":123,"field3":123.45,"field4":true}
+
+    {.field1;"value1;.field2;123;.field3;/123.45;.field4;!1;}
+
