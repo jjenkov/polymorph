@@ -8,13 +8,16 @@ import javafx.stage.Stage;
  */
 public class PolymorphPlayerApp extends Application {
 
+    private static PolymorphPlayer polymorphPlayer;
+
     public static void main(String[] args) {
+        polymorphPlayer = new PolymorphPlayer();
         launch();
     }
 
     @Override
     public void start(Stage rootStage) {
-        rootStage.setTitle("Polymorph Player");
-        rootStage.show();
+        polymorphPlayer.setRootStage(rootStage);
+        polymorphPlayer.init();
     }
 }
