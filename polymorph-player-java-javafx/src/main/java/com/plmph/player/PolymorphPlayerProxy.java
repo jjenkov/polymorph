@@ -1,6 +1,7 @@
 package com.plmph.player;
 
 import javafx.application.Platform;
+import javafx.stage.Stage;
 
 import java.util.function.Consumer;
 
@@ -20,6 +21,15 @@ public class PolymorphPlayerProxy {
 
     public PolymorphPlayerProxy(PolymorphPlayer polymorphPlayer) {
         this.polymorphPlayer = polymorphPlayer;
+    }
+
+    /**
+     * Returns the root Stage (window) for the Player application. Note: This stage is used for the control deck, so do
+     * not alter it from other plugins. This method should only be called from the JavaFX UI thread.
+     * @return The root Stage for the Player app.
+     */
+    public Stage getRootStage(){
+        return polymorphPlayer.getRootStage();
     }
 
     public void runInUiThreadLater(Consumer<PolymorphPlayerProxy> action) {
