@@ -42,6 +42,7 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
 - [Whitespace](#Whitespace)
 - [ASCII With UTF-8 Zones](#ASCII-With-UTF-8-Zones)
 - [Minification](#Minification)
+- [Parallel Tokenization](#Parallel-Tokenization)
 - [Full PDL Example](#Full-PDL-Example)
 
 
@@ -803,6 +804,38 @@ Tokenizing minified PDL can be faster than tokenizing non-minified PDL, for two 
 First, minified PDL simply has fewer characters to process. Second, you don't need to scan for
 whitespace characters in between the PDL tokens. This removes the loop checking for whitespace characters
 from the tokenization process, making it simpler and faster.
+
+
+## Parallel Tokenization
+
+Due to PDl's stringent syntax it is possible to parallelize the tokenization of PDL scripts. This is most likely 
+only beneficial for larger PDL scripts - but nevertheless it is possible.
+
+If you need to tokenize a PDL script of e.g. 10 MB you can split those 10 MB up into 10 blocks of 1 MB each.
+Each of these blocks can be tokenized in parallel.
+
+The boundaries of these blocks may fall within a token and not exactly between tokens. Therefore it is necessary
+to search from a block boundary forward until the next token starts, and then tokenize within that byte range. 
+E.g.: 
+
+ - 0 to 1 MB + 2 bytes
+ - 1 MB + 3 bytes to 2 MB + 5 bytes
+ - 2 MB + 6 bytes to 3 MB + 1 byte
+ - 3 MB + 2 bytes to 4 MB + 4 bytes
+ - etc.
+
+The challenge of parallel tokenization is, that if you jump into any script (PDL, JSON, CSV etc.) at a certain byte index, 
+how do you  find out where the next token starts? In JSON, if you find a comma, but it was actually a comma inside a quoted
+string, then it is not actually a token boundary comma. 
+
+In PDL, semicolon is the most commonly used token end character and semicolons cannot exist anywhere else than
+as a token end character. If you need to represent a semicolon in an ASCII or UTF-8 sequence it must be
+escaped. See the escaping section in the UTF-8 field description.
+
+Because of this special characteristic of the semicolon character in PDL, you can search for the next semicolon
+from a block boundary. When found, you know for sure that a new token starts after that semicolon, possibly after
+some whitespace characters. Thus, semicolons can be used effectively to find out where to start tokenizing from,
+and where to tokenize to, for any given PDL block.
 
 
 ## FULL PDL Example
