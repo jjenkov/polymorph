@@ -18,9 +18,26 @@ import java.util.function.Consumer;
 public class PolymorphPlayerProxy {
 
     private PolymorphPlayer polymorphPlayer;
+    private PlayGroup playGroup;
 
     public PolymorphPlayerProxy(PolymorphPlayer polymorphPlayer) {
         this.polymorphPlayer = polymorphPlayer;
+    }
+
+    /**
+     * Sets the PlayGroup this PolymorphPlayerProxy object lives within.
+     * @param playGroup The PlayGroup this PolymorphPlayerProxy object lives within.
+     */
+    public void setPlayGroup(PlayGroup playGroup) {
+        this.playGroup = playGroup;
+    }
+
+    /**
+     * Returns the PlayGroup this PolymorphPlayerProxy lives within.
+     * @return The PlayGroup this PolymorphPlayerProxy lives within.
+     */
+    public PlayGroup getPlayGroup() {
+        return playGroup;
     }
 
     /**
@@ -35,4 +52,5 @@ public class PolymorphPlayerProxy {
     public void runInUiThreadLater(Consumer<PolymorphPlayerProxy> action) {
         Platform.runLater(() -> action.accept(this) );
     }
+
 }

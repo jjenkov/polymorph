@@ -1,10 +1,13 @@
 package com.plmph.player.plugins.controldeck;
 
+import com.plmph.player.Playable;
 import com.plmph.player.PolymorphPlayerPlugin;
 import com.plmph.player.PolymorphPlayerProxy;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -13,18 +16,27 @@ import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.util.List;
 
 public class ControlDeckPlugin implements PolymorphPlayerPlugin {
+
+    private PolymorphPlayerProxy proxy;
+    private Canvas canvas = null;
+
+    private int leftMargin = 32;
+    private int topMargin = 32;
 
     private double  mouseDownX = 0D;
     private double  mouseDownY = 0D;
 
     @Override
     public void init(PolymorphPlayerProxy proxy) {
+        this.proxy = proxy;
         // executed from the JavaFX UI thread, so it is allowed to access the proxy methods without a call to runLaterInUiThread()
 
         // access the root window (Stage) and configure it with a dark theme.
@@ -33,15 +45,15 @@ public class ControlDeckPlugin implements PolymorphPlayerPlugin {
         rootStage.setWidth(1024);
         rootStage.setHeight(576);
 
-        int leftMargin = 32;
-        int topMargin = 32;
+
 
         // mouse move listener
         addMouseListeners(rootStage, leftMargin, topMargin);
+        addKeyboardListeners(rootStage, leftMargin, topMargin);
 
         // canvas
-        Canvas canvas = new Canvas(1024, 576);
-        GraphicsContext graphicsContext2D = canvas.getGraphicsContext2D();
+        this.canvas = new Canvas(1024, 576);
+        GraphicsContext graphicsContext2D = this.canvas.getGraphicsContext2D();
         graphicsContext2D.setFill(Color.web("#121212"));
         graphicsContext2D.fillRect(0, 0, 1024, 576);
 
@@ -54,9 +66,9 @@ public class ControlDeckPlugin implements PolymorphPlayerPlugin {
         drawLogoText(graphicsContext2D, leftMargin, topMargin, logoIconColor);
 
         // draw close window cross
-        drawCloseCross(graphicsContext2D, canvas, leftMargin, topMargin);
+        drawCloseCross(graphicsContext2D, this.canvas, leftMargin, topMargin);
 
-        Pane rootPane = new Pane(canvas); // Pane has no layout built-in - which is what we want for the control deck.
+        Pane rootPane = new Pane(this.canvas); // Pane has no layout built-in - which is what we want for the control deck.
         Scene scene = new Scene(rootPane);
         rootStage.setScene(scene);
 
@@ -133,5 +145,49 @@ public class ControlDeckPlugin implements PolymorphPlayerPlugin {
              mouseDownX = mouseNowX;
              mouseDownY = mouseNowY;
         });
+    }
+
+    private void addKeyboardListeners(Stage rootStage, int leftMargin, int topMargin) {
+        rootStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if(event.getCode() == KeyCode.R){
+                System.out.println("R key pressed: " + event.toString());
+                openFileChooser(rootStage, "Run a File...");
+            }
+        });
+    }
+
+    private void openFileChooser(Stage rootStage, String dialogTitle) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle(dialogTitle);
+        fileChooser.setInitialDirectory(new File("."));
+
+        File selectedFile = fileChooser.showOpenDialog(rootStage);
+
+        if (selectedFile != null) {
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            System.out.println("File name only: " + selectedFile.getName());
+
+            // play file in same play group
+            Playable playable = new Playable(Playable.SCRIPT, selectedFile.getAbsolutePath());
+            this.proxy.getPlayGroup().play(playable);
+        }
+        drawPlayGroups(this.canvas);
+    }
+
+    private void drawPlayGroups(Canvas canvas) {
+        Font fontText = Font.font("Roboto Condensed", FontWeight.BOLD, 24);
+
+        GraphicsContext graphicsContext2D = canvas.getGraphicsContext2D();
+        graphicsContext2D.setFont(fontText);
+
+        // only shows all playables in this play group, but should show all in entire application.
+        int x = leftMargin;
+        int y = topMargin + 100;
+        for( Playable playable : this.proxy.getPlayGroup().getPlayables()){
+            graphicsContext2D.setFill(Color.web("#ffffff"));
+
+            graphicsContext2D.fillText( playable.getAddress(), x, y );
+            y+=40;
+        }
     }
 }
