@@ -488,6 +488,48 @@ Representing a UTF-8 text token looks like this:
     "This is a UTF-8 text;
 
 
+### Text Escape Characters
+
+PDL contains three different fields / token types that can contain textual data: 
+
+- Bytes - in UTF-8 encoding.
+- ASCII
+- UTF-8
+
+All of these fields / token types use a semicolon as token end character. That means, that you cannot use a 
+semicolon inside the value of that field / token, because it would be interpreted as the token end character.
+
+To represent a semicolon in a text token you will have to escape it. Escaping a character means representing it
+using an escape character sequence. 
+
+PDL uses the backslash character \ as escape character. The character after the \ determines what this 2-character
+sequence is to be interpreted as. Here are the built-in escape character sequences that PDL supports:
+
+- \0   : Represents a backslash character 
+- \1   : Represents the token end character (semicolon)
+- \t   : Represents a tab character
+- \r   : Represents a carriage return
+- \n   : Represents a newline
+
+These escape character sequences should be interpreted before converting PDL to PDE. Thus, the escape characters
+should not appear in PDE. 
+
+The reason PDL uses \0 and \1 instead of \\ and \; that other languages would have used, is this:
+
+By representing the backslash character itself using \0 instead of \\ - you know that when you encounter a \ character
+in a PDL text token, it is always an escape character. It is never the second character of a 2-character escape sequence
+to represent a backslash character.
+
+By representing the semicolon character using the \0 sequence instead of \; - you know that when you encounter a ;
+character anywhere in a PDL script - it is always a token end character. It is never the second character of a 2-character
+escape sequence to represent a semicolon character. Knowing this is advantageous when tokenizing PDL in parallel.
+See [Parallel Tokenization](#Parallel-Tokenization) for more information.
+
+Here is an example UTF-8 token with embedded escape characters to illustrate how it looks in practice:
+
+    "This is a UTF-8 text with embedded escaped characters: \0 \1 \t \r \n ;
+
+
 ### UTC Date and Time
 The PDL UTC token represents a date and time in UTC format (no time zones allowed). 
 The UTC PDL token uses the @ character as type character and a semicolon as token end character.
