@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
 - Polymorph Project Documentation
   - [Polymorph Project Motivation](docs/polymorph-project-motivation.md)
   - [Polymorph Project Goals](docs/polymorph-project-goals.md)
-  - [Polymorph Ues Cases](docs/polymorph-use-cases-and-functionality.md)
+  - [Polymorph Use Cases](docs/polymorph-use-cases-and-functionality.md)
   - [Polymorph Technology Overview](docs/polymorph-technology-overview.md)
   - [Polymorph Data Encoding and Polymorph Data Language Introduction](docs/pde-pdl-introduction.md)
   - [Polymorph Data Language Syntax Design](docs/pdl-syntax-design.md)
