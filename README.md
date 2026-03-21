@@ -24,6 +24,7 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
   - [Roadmap](https://github.com/users/jjenkov/projects/1/views/3)
 
 - Polymorph Project Documentation
+  - [Polymorph Project Motivation](docs/polymorph-project-motivation.md)
   - [Polymorph Project Goals](docs/polymorph-project-goals.md)
   - [Polymorph Ues Cases](docs/polymorph-use-cases-and-functionality.md)
   - [Polymorph Technology Overview](docs/polymorph-technology-overview.md)

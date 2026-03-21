@@ -6,7 +6,7 @@ still inherently deficient.
 The Polymorph Personal Compute Platform project attempts to address
 some of these deficiencies. That is why the Polymorph project insists on reimagining so much of its tech stack.
 
-The following sections explains the most annoying deficiencies of today's web technology, 
+The following sections explain the most annoying deficiencies of today's web technology, 
 which Polymorph attempts to address.
 
 - [Technical Deficiencies](#Technical-Deficiencies)
