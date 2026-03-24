@@ -1,7 +1,8 @@
 # Polymorph Personal Compute Platform
 
     In my opinion, the web technology stack is not the right technology stack for personal computing.
-    The Polymorph Personal Compute Platform project seeks to provide an alternative personal compute platform.
+    The Polymorph Personal Compute Platform project seeks to provide an alternative 
+    personal compute platform.
 
 The purpose of the Polymorph Personal Compute Platform project is to reimagine what personal computing could look like.
 The Web technology stack is, in my opinion, not the right technology stack for personal computing.
