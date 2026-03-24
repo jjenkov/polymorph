@@ -1,28 +1,22 @@
 # Polymorph Personal Compute Platform
 
-The purpose of the Polymorph Personal Compute Platform project is to reimagine what personal computing could look like. 
+    The Web is a 30+ year multi-trillion dollar global mistake.
+
+    Business can do whatever they want - but personal users should not be stuck with
+    the deficient web technology stack.
+
+    The Polymorph Personal Compute Platform seeks to provide an alternative.
+
+The purpose of the Polymorph Personal Compute Platform project is to reimagine what personal computing could look like.
+The Web technology stack is, in my opinion, not the right technology stack for personal computing.
 
 The project aims at providing a wide variety of common personal computing functionality that is easily accessible
 within a single, coherent, flexible platform.
 
-You can read more about the goals of the Polymorph Personal Compute Platform project here:
-
-[Polymorph Project Goals](docs/polymorph-project-goals.md)
-
 Even though the primary target users are personal users – several of the technologies coming out of the Polymorph
 project can be used for commercial use cases too – both in small companies and in larger enterprises.
 
-Here is an introduction video to the Polymorph Personal Compute Platform:
-
-https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHaDQe&index=2=
-
-
 ## Table of Contents
-- Polymorph Project Plan
-  - [Task Board](https://github.com/users/jjenkov/projects/1/views/2)
-  - [Task List](https://github.com/users/jjenkov/projects/1/views/4)
-  - [Roadmap](https://github.com/users/jjenkov/projects/1/views/3)
-
 - Polymorph Project Documentation
   - [Polymorph Project Motivation](docs/polymorph-project-motivation.md)
   - [Polymorph Project Goals](docs/polymorph-project-goals.md)
@@ -36,7 +30,12 @@ https://www.youtube.com/watch?v=2M7R7b1UHxE&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHa
   - [Polymorph Data Encoding (PDE)](specifications/pde-specification.md) 
   - [Polymorph Data Language (PDL)](specifications/pdl-specification.md)
 
-- Additional Information   
+- Polymorph Project Plan
+  - [Task Board](https://github.com/users/jjenkov/projects/1/views/2)
+  - [Task List](https://github.com/users/jjenkov/projects/1/views/4)
+  - [Roadmap](https://github.com/users/jjenkov/projects/1/views/3)
+
+- Additional Information
   - [Web Technology Deficiencies](docs/web-technology-deficiencies.md)
 
 
