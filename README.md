@@ -1,11 +1,7 @@
 # Polymorph Personal Compute Platform
 
-    The Web is a 30+ year multi-trillion dollar global mistake.
-
-    Business can do whatever they want - but personal users should not be stuck with
-    the deficient web technology stack.
-
-    The Polymorph Personal Compute Platform seeks to provide an alternative.
+    In my opinion, the web technology stack is not the right technology stack for personal computing.
+    The Polymorph Personal Compute Platform project seeks to provide an alternative personal compute platform.
 
 The purpose of the Polymorph Personal Compute Platform project is to reimagine what personal computing could look like.
 The Web technology stack is, in my opinion, not the right technology stack for personal computing.
