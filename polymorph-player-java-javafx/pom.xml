@@ -65,6 +65,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
+                    <compilerArgs>
+                        <enablePreview>true</enablePreview>
+                        <arg>--add-modules</arg>
+                        <arg>jdk.incubator.vector</arg>
+                    </compilerArgs>
                     <release>25</release>
                 </configuration>
             </plugin>

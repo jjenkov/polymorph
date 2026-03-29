@@ -1,0 +1,1 @@
+C:\data\downloads\java\openjdk-25.0.1_windows-x64_bin\jdk-25.0.1\bin\java -ea --add-modules jdk.incubator.vector -jar target/benchmarks.jar
