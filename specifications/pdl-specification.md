@@ -918,7 +918,7 @@ Here is a full PDL example showing all of the built-in PDL token and field types
       ]
     }
     
-    ;0;
+    :0;
     { .name; "Parent;
       .child; {
         .parent; &0;
