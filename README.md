@@ -38,11 +38,13 @@ project can be used for commercial use cases too – both in small companies and
 
 ## Directory Descriptions
 
-The "docs" directory contains various documentation about the Polymorph Personal Compute Project.
+The `docs` directory contains various documentation about the Polymorph Personal Compute Project.
 
-The "resources" directory contains various additional resources, such as graphics displayed in Markdown files, screenshots etc.
+The `resources` directory contains various additional resources, such as graphics displayed in Markdown files, screenshots etc.
 
-The "specifications" directory contains the official Polymorph specifications such as Polymorph Data Encoding and Polymorph Data Language.
+The `specifications` directory contains the official Polymorph specifications such as Polymorph Data Encoding and Polymorph Data Language.
 
-The "polymorph-player-java-javafx" directory contains a Java + JavaFX implementation of the Polymorph Player.
+The `polymorph-player-java-javafx` directory contains a Java + JavaFX implementation of the Polymorph Player.
 The Polymorph Player is a desktop application that can execute scripts written by users to activate the Player's embedded functionality.
+
+
