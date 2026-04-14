@@ -34,11 +34,24 @@ public class PdlTokenizer {
     }
 
 
-    //todo create a simplified tokenize() method that takes a byte array + offset + length, and a long array to write token offsets into
+    public static int tokenizeMinified(byte[] source, int offset, int length, long[] tokenOffsets){
+        int tokenOffsetsIndex = 0;
+        int endOffset = offset + length;
 
-    public static int tokenizeMinified(byte[] source, int offset, int length, int[] tokenOffsets){
+        for(;offset < endOffset;){
+            int tokenStartOffset  = offset;
+            int tokenEndCharacter = tokenEndCharacters[source[tokenStartOffset]];
 
-        return 0; // return number of token offsets written into tokenOffset (=number of tokens found)
+            for(;offset < endOffset; offset++){
+                if(source[offset] == tokenEndCharacter) { break; }
+            }
+
+            offset++; // We want the index right after the last character in the token.
+            long tokenOffsetPair = (long) ((long) offset << 32 | (long) tokenStartOffset);
+            tokenOffsets[tokenOffsetsIndex++] = tokenOffsetPair;
+        }
+
+        return tokenOffsetsIndex; // return number of token offsets written into tokenOffset (=number of tokens found)
     }
 
     public static int tokenize_for(byte[] source, int offset, int length, long[] tokenOffsets){
@@ -50,7 +63,6 @@ public class PdlTokenizer {
             if(source[offset] > 32 ) { break; } // All ASCII values from 32 and down are considered white space
         }
 
-        //todo try combining offset < endOffset & source[offset] != tokenEndCharacter in same condition.
         for(;offset < endOffset;){
             int tokenStartOffset  = offset;
             int tokenEndCharacter = tokenEndCharacters[source[tokenStartOffset]];
@@ -72,6 +84,41 @@ public class PdlTokenizer {
         return tokenOffsetsIndex; // return number of token offsets written into tokenOffset (=number of tokens found)
     }
 
+
+
+    public static int tokenize_while_and(byte[] source, int offset, int length, long[] tokenOffsets){
+        int tokenOffsetsIndex = 0;
+        int endOffset = offset + length;
+
+        //skip whitespace
+        while(offset < endOffset && source[offset] <= 32) {
+            offset++;
+        }
+
+        int tokenStartOffset = 0;
+        int tokenEndCharacter = 0;
+
+        while(offset < endOffset){
+            tokenStartOffset  = offset;
+            tokenEndCharacter = tokenEndCharacters[source[tokenStartOffset]];
+
+            while(offset < endOffset && source[offset] != tokenEndCharacter){
+                offset++;
+            }
+
+            offset++; // We want the index right after the last character in the token.
+            long tokenOffsetPair = (long) ((long) offset << 32 | (long) tokenStartOffset);
+            tokenOffsets[tokenOffsetsIndex++] = tokenOffsetPair;
+
+            //skip whitespace
+            while(offset < endOffset && source[offset] <= 32){
+                offset++;
+            }
+        }
+
+        return tokenOffsetsIndex; // return number of token offsets written into tokenOffset (=number of tokens found)
+    }
+
     public static int tokenize_while(byte[] source, int offset, int length, long[] tokenOffsets){
         int tokenOffsetsIndex = 0;
         int endOffset = offset + length;
@@ -82,10 +129,12 @@ public class PdlTokenizer {
             offset++;
         }
 
-        //todo try combining offset < endOffset & source[offset] != tokenEndCharacter in same condition.
+        int tokenStartOffset = 0;
+        int tokenEndCharacter = 0;
+
         while(offset < endOffset){
-            int tokenStartOffset  = offset;
-            int tokenEndCharacter = tokenEndCharacters[source[tokenStartOffset]];
+            tokenStartOffset  = offset;
+            tokenEndCharacter = tokenEndCharacters[source[tokenStartOffset]];
 
             while(offset < endOffset){
                 if(source[offset] == tokenEndCharacter) { break; }
@@ -116,7 +165,6 @@ public class PdlTokenizer {
             offset++;
         }
 
-        //todo try combining offset < endOffset & source[offset] != tokenEndCharacter in same condition.
         while(offset < endOffset){
             int tokenStartOffset  = offset;
             int tokenEndCharacter = tokenEndCharacters[source[tokenStartOffset]];
