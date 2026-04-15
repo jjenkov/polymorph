@@ -22,6 +22,10 @@ project can be used for commercial use cases too – both in small companies and
   - [Polymorph Data Encoding and Polymorph Data Language Introduction](docs/pde-pdl-introduction.md)
   - [Polymorph Data Language Syntax Design](docs/pdl-syntax-design.md)
   - [Top-down Virtual Machines vs. Bottom-up Virtual Machines](docs/top-down-vms-vs-bottom-up-vms.md)
+  
+- Polymorph Videos
+  - [YouTube Playlist](https://www.youtube.com/playlist?list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHaDQe)
+  - [Polymorph Data Language](https://www.youtube.com/watch?v=TnCtl7hBfzM&list=PLL8woMHwr36Fw_IYQuw1E7-B-cCEHaDQe&index=2)
 
 - Polymorph Specifications
   - [Polymorph Data Encoding (PDE)](specifications/pde-specification.md) 
