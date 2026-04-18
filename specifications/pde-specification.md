@@ -27,6 +27,37 @@ See more about the purpose of PDE, and how PDE compares to other data formats, i
 
 [README.md](../README.md)
 
+## Table of Contents
+
+- [Polymorph Data Language](#Polymorph-Data-Language)
+- [PDE Fields](#PDE-Fields)
+- [PDE Metadata Fields](#PDE-Metadata-Fields)
+- [PDE Files And Streams](#PDE-Files-And-Streams)
+  - [Field Offsets in Streams](#Field-Offsets-in-Streams)
+  - [Offsets Enable Incremental Processing and Subscription](#Offsets-Enable-Incremental-Processing-and-Subscription)
+  - [Field Offsets in Streams](#Field-Offsets-in-Streams)
+  - [Offset Gaps](#Offset-Gaps)
+  - [Sub-streams](#Sub-streams)
+- [PDE Fields Are Either Atomic or Composite](#PDE-Fields-Are-Either-Atomic-or-Composite)
+- [PDE Field Encodings](#PDE-Field-Encodings)
+- [PDE Field Encoding Examples](#PDE-Field-Encoding-Examples)
+- [PDE Field Type Codes ](#PDE-Field-Type-Codes)
+- [Boolean Encodings](#Boolean-Encodings)
+- [Integer Encodings](#Integer-Encodings)
+- [Float Encodings](#Float-Encodings)
+- [Bytes](#Bytes)
+- [ASCII](#ASCII)
+- [UTF-8](#UTF-8)
+- [UTC](#UTC)
+- [Copy](#Copy)
+- [Reference](#Reference)
+- [Key](#Key)
+- [Object](#Object)
+- [Table](#Table)
+- [Metadata](#Metadata)
+- [Extensions](#Extensions)
+- [Comments](#Comments)
+
 
 ## Polymorph Data Language
 Polymorph Data Language (PDL) is a textual encoding of the same data types that PDE can encode using a binary
@@ -120,7 +151,7 @@ Note, that Metadata fields are not considered to have an offset, as they are mer
 the PDE data fields - not data fields themselves.
 
 
-### Offsets Enable Incremental Processing and Subscription   
+### Offsets Enable Incremental Processing and Subscription
 
 PDE field offsets enable you to use PDE field streams as a means of subscribing to changes
 either from the beginning of a PDE field stream (offset 0), or from the last offset you have already
@@ -198,7 +229,7 @@ An object PDE field is an example of a composite field. An object field can have
 
 
 
-## PDE Field Encodings 
+## PDE Field Encodings
 Each PDE field are encoded in bytes using a field type, length and value. The type, length and value can all be read f
 rom the bytes in the PDE byte stream. No schema is needed.
 
@@ -282,7 +313,7 @@ Note: The text following a # is just a comment - not part of the data.
 
 
 
-## PDE Field Type Codes 
+## PDE Field Type Codes
 The first byte of a PDE field is the PDE field's type code. The available PDE field type codes are listed in the table below. 
 
 
