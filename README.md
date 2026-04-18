@@ -51,4 +51,7 @@ The `specifications` directory contains the official Polymorph specifications su
 The `polymorph-player-java-javafx` directory contains a Java + JavaFX implementation of the Polymorph Player.
 The Polymorph Player is a desktop application that can execute scripts written by users to activate the Player's embedded functionality.
 
+The `polymorph-tools-java` directory contains a set of tools for using Polymorph technologies, such as PDL, PDE, etc.
+The code in this directory can be used outside of the Polymorph Player project (e.g. in your own projects).
+
 
