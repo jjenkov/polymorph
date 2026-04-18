@@ -1,14 +1,15 @@
 package com.plmph.pdl;
 
+import java.util.Arrays;
+
 public class PdlTokenizer {
 
     private static final byte[] tokenEndCharacters = new byte[128];
 
     static {
         // default end character is ;
-        for(int i=0; i<tokenEndCharacters.length; i++) {
-            tokenEndCharacters[i] = ';';
-        }
+        Arrays.fill(tokenEndCharacters, (byte)';');
+
         // single-character tokens end with themselves as end character.
         tokenEndCharacters['{'] = '{';
         tokenEndCharacters['}'] = '}';
