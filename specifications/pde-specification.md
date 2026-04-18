@@ -23,9 +23,9 @@ Polymorph Data Encoding is an alternative to
 
 All in all, PDE has several features these data formats do not.
 
-See more about the purpose of PDE, and how PDE compares to other data formats, in the README file here:
+See more about the purpose of PDE, and how PDE compares to other data formats, in the 
+[PDE and PDL Introduction](../docs/pde-pdl-introduction.md)
 
-[README.md](../README.md)
 
 ## Table of Contents
 
