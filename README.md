@@ -55,3 +55,46 @@ The `polymorph-tools-java` directory contains a set of tools for using Polymorph
 The code in this directory can be used outside of the Polymorph Player project (e.g. in your own projects).
 
 
+## Contributing
+
+The Polymorph Personal Compute Platform project has turned out to be rather research-heavy - at least for now.
+This means that it is not easy to just "take an issue and implement it". You need a lot of background knowledge to 
+complete most tasks at this point. 
+
+But - that does not mean you cannot contribute!
+
+The Polymorph project will most likely be 
+
+ - Idea-heavy
+ - Code-light
+
+The most important parts of this project are the ideas that come out of it. The ideas that result from the research.
+If the ideas are good and simple enough, there could potentially be many implementations of them – also outside 
+the Polymorph project. If the descriptions are precise enough, implementations could potentially be made using AI.
+
+Thus, the best ways to contribute to the Polymorph project are:
+
+1) New ideas for functionality.
+2) Research into how to design and implement this new functionality.
+3) Validation of "completed" or ongoing research by scrutinizing the ideas and testing the ideas in practice.
+4) Use the technologies and provide feedback about what works, what could be improved, or what should be removed.
+5) Feedback on existing implementations.
+6) Tell others about the project, ideas, and implementations.
+7) Forming local communities around the Polymorph project (when the project matures).
+
+Often, a high-quality implementation of an idea requires that you know all the details about that idea.
+Additionally, during the implementation you may realize that the idea needs to be tweaked to make the implementation
+easier, faster, more extendable, more composable, etc. Therefore, it is not always easy to implement an idea you 
+have not created or studied – meaning it is not as easy to contribute with the concrete implementations.  
+
+For instance, I have been working more than 1 year just on the design of PDL. In my spare-time, on/off etc. – but
+still. A lot of time and effort has gone into ideation, experimentation, benchmarking, and modifications of the idea, until I 
+arrived at what I believe to be the best compromise between all its design goals. 
+The final PDL tokenizer implementation, however, is only around 30 lines of code plus a lookup table.  
+
+The situation is similar for several other parts of this project. I spent just as much time on specifying PDE as I did for PDL.
+Coming up with good designs is the hard part. Implementing them is often easier or is done incrementally during the ideation process.
+So, there are many other, more valuable ways to contribute than "writing code".
+
+Additionally, the deeper the Polymorph community understands the ideas – the stronger the community and the
+technology become. The project might move slower – but the results will be better.
