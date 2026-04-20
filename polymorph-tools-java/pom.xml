@@ -9,7 +9,7 @@
     <version>0.1.0</version>
     <packaging>jar</packaging>
 
-    <name>Polymorph Fabric - Java Implementations</name>
+    <name>Polymorph Tools - Java Implementations</name>
     <description>
         Polymorph Fabric is a toolkit that provides proof-of-concept implementations in Java for a variety of different technologies from the
         Polymorph project.
