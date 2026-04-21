@@ -98,3 +98,7 @@ So, there are many other, more valuable ways to contribute than "writing code".
 
 Additionally, the deeper the Polymorph community understands the ideas – the stronger the community and the
 technology become. The project might move slower – but the results will be better.
+
+So - the best way you can contribute to the Polymorph project is at the ideation, validation, feedback, and propagation
+level. The implementation level is important too, of course, but somewhat secondary. With good ideas we will get the
+implementations done sooner or later, using AI or by hand.
