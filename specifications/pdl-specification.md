@@ -19,7 +19,7 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
   - [Single Character Tokens](#Single-Character-Tokens)
   - [Multi-character Tokens](#Multi-character-Tokens)
   - [Positive Integer Tokens](#Positive-Integer-Tokens)
-  - [Named Tokens](#Named-Tokens)
+  - [Instruction Tokens](#Instruction-Tokens)
 - [Token Type Characters](#Token-Type-Characters)
 - [Token Types](#Token-Types)
   - [Null Values](#Null-Values)
@@ -39,7 +39,7 @@ Polymorph Data Language can also be used by itself as an alternative to CSV, JSO
   - [Object](#Object)
   - [Table](#Table)
   - [Metadata](#Metadata)
-  - [Named Tokens](#Named-Tokens)
+  - [Instructions](#Instructions)
 - [Whitespace](#Whitespace)
 - [ASCII With UTF-8 Zones](#ASCII-With-UTF-8-Zones)
 - [Minification](#Minification)
@@ -83,23 +83,23 @@ a PDE field.
 PDL tokens follow one of these formats:
 
 - Single character tokens
-  - The token consists of a single character, such as any of these characters: { } [ ] ( )
+  - The token consists of a single character, such as any of these characters: `{ } [ ] ( )`
   - These are often used to mark the beginning and end of composite fields.
 
 - Multi-character tokens
-  - Starts with a token type character and ends with a token end character, such as "hello;
+  - Starts with a token type character and ends with a token end character, such as `"hello;`
   - These are often used to represent an atomic field (a single-value field).
 
 - Positive integer tokens
   - Starts with a digit character and ends with a token end character, such as 12345;
   - These are used to represent positive integer fields.
 
-- Named tokens 
-  - Consists of multiple smaller tokens, such as value( 12345; )   (3 separate tokens)
+- Instructions
+  - Consists of multiple smaller tokens, such as `value( 12345; )`   (3 separate tokens)
   - Starts with a token that starts with an alphabetic character and ends with a parenthesis, such as value(
   - Contains one or more PDL tokens after the ( 
   - Ends with another ) - which is a single character token.
-  - For instance, the named token value( 12345; ) consists of these 3 smaller tokens:
+  - For instance, the instruction `value( 12345; )` consists of these 3 smaller tokens:
     - value(
     - 12345;
     - )
@@ -119,11 +119,9 @@ the following single character tokens:
     )
     ;
 
-These tokens are used to mark the beginning and end of composite fields, such as objects, tables, arrays, and named tokens.
+These tokens are used to mark the beginning and end of composite fields, such as objects, tables, arrays, and instructions.
 
 Note: Only if any of these characters is the first character of a token - will they be perceived as single character tokens.
-The ) character is also used as a token end character for named tokens - but being located at the end of a token, it will
-not be confused with a single character token.
 
 Note: The single character tokens ( and ; are not currently used, but the PDL tokenizer still recognizes and accepts them
 as a valid tokens. Both of these single character tokens are used in Polymorph Assembly, by the way.
@@ -165,19 +163,19 @@ token are also interpreted to be positive integer token type characters. Here ar
     789; 
 
 
-### Named Tokens
-Named tokens are used to represent fields that cannot be represented using single character tokens,
-multi-character tokens, or positive integer tokens. There are no built-in named tokens in PDL at this time.
-Thus, named tokens are mostly used for extensibility. You could embed your own named tokens with your
+### Instruction Tokens
+Instructions consists of multiple tokens which together can represent fields that cannot be represented using single character tokens,
+multi-character tokens, or positive integer tokens. There are no built-in instructions in PDL at this time.
+Thus, instructions are mostly used for extensibility. You could embed your own instructions with your
 own semantic meaning in your PDL scripts. For instance,
 
     phoneNumber( 12345678; )
     name( "John; "Doe; )
     address( "Main St; 123; )
 
-The reason it is called a "name token" is, that a named token does not have an explicit 
-token type character telling what type of token it is. Instead, it is the name of a named token that
-tells what type of token it is. 
+The reason it is called an "instruction" is, that an instruction does not have an explicit 
+token type character telling you how to interpret this construct. All you know is that it is an instruction.
+Instead, it is the name of the instruction that tells how to interpret it. 
 
 This is different from other PDL tokens. For instance, a UTF-8 token looks like this:
 
@@ -185,28 +183,28 @@ This is different from other PDL tokens. For instance, a UTF-8 token looks like 
 
 It consists of a token type character " plus some value characters, and the token end character ;
 
-But, a named token looks like this:
+But, an instruction looks like this:
 
-    myNamedToken( "blablabla; )
+    myInstruction( "blablabla; )
 
-To know how to interpret this named token, you first need to identify that it is a named token.
+To know how to interpret this instruction, you first need to identify that it is an instruction.
 You do so by seeing that its first character is alphabetic. 
 
-Second, you look at the name of the token. In this case, "myNamedToken". That name is used to represent the
-actual, semantic token type. It's a named token, of semantic type "myNamedToken". 
+Second, you look at the name of the token. In this case, "myInstruction". That name is used to represent the
+actual, semantic data type. In this example it is an instruction – of semantic type "myInstruction". 
 
-Third, to see what value this named token has, you look at the characters following the ( and ) .
-That is considered the value of the named token.
+Third, to see what value this instruction has, you look at the characters following the ( and ) .
+That is considered the value of the instruction (or the body of the instruction).
 
-Finally, the named token ends with the single character token ) .
+Finally, the instruction ends with the single character token ) .
 
-Note, that the first part of a named token ends with the ( character, as in myNamedToken( . 
+Note, that the first part of an instruction ends with the ( character, as in myInstruction( . 
 Thus, the ( is not considered a single character token when it is not the very first character of a token.
-Instead, it is the token end character of the name part of a named token.
+Instead, it is the token end character of the name part of an instruction.
 
-As stated earlier, there are no built-in named tokens in PDL at this time, so you will not be using them
-unless you create your own. However, Polymorph Assembly uses a syntax that is similar to PDL's named tokens.
-Thus, once you understand how named tokens work in PDL, the syntax of Polymorph Assembly will make more sense.
+As stated earlier, there are no built-in instructions in PDL at this time, so you will not be using them
+unless you create your own. However, Polymorph Assembly uses a syntax that is similar to PDL's instructions.
+Thus, once you understand how instructions work in PDL, the syntax of Polymorph Assembly will make more sense.
 
 
 ## Token Type Characters
@@ -239,7 +237,7 @@ The token type character is the first character of a token.
 | ]         | Table end                     | ]                                |
 | <         | Metadata begin                | <                                |
 | \>        | Metadata end                  | \>                               |
-| a...Z     | Named tokens                  | id(123;)  ref(123;)              |
+| a...Z     | Instructions                  | id(123;)  ref(123;)              |
 
 Note:
 The "Metadata end" token type character is only one character - the > character.
@@ -268,7 +266,7 @@ Here is an example PDL null token of the UTF-8 field type:
 
     _";
 
-For tokens that have more than one valid token type character, such as positive integer tokens and named tokens,
+For tokens that have more than one valid token type character, such as positive integer tokens and instructions,
 you can use any of the token type characters within a null token. Here are a few examples:
 
    _+;
@@ -775,34 +773,34 @@ Predefined semantic meanings of some metadata fields might be added in the futur
 certain use cases. 
 
 
-### Named Tokens
-A PDL named token is used to represent fields that do not have their own special token type character.
-Instead the name of a named token tells what kind of token it is. Thus, named tokens are more verbose than tokens
+### Instructions
+A PDL instruction is used to represent fields that do not have their own special token type character.
+Instead, the name of an instruction tells what kind of data type it is. Thus, instructions are more verbose than tokens
 that use token type characters.
 
-As explained earlier in this PDL specification, a named token actually consists of 3 or or more individual tokens.
-Here is an example named token:
+As explained earlier in this PDL specification, an instruction actually consists of 3 or more individual tokens.
+Here is an example instruction:
 
     tokenNamePart(
     "nested field part;
     )
 
-The first subtoken of a named token uses any alphabetic character as token type character.
+The first subtoken of an instruction uses any alphabetic character as token type character.
 This first subtoken used the ( character as subtoken end character.
 
 Any nested fields are just regular PDL tokens / fields.
 
-The last subtoken of a named token is the single character token ) .
+The last subtoken of a instruction is the single character token ) .
 
-Here are some example PDL named tokens using different syntax suggestions:
+Here are some example PDL instructions using different syntax suggestions:
 
     id(123;)
     ref(123;)
 
 Note:
-There are currently no predefined named tokens in Polymorph Data Language (PDL). 
-You could construct your own named tokens. For instance, you could create a 
-concatenation named token that could look like this:
+There are currently no predefined instructions in Polymorph Data Language (PDL). 
+You could construct your own instructions. For instance, you could create a 
+concatenation instruction that could look like this:
 
     concat( "John and Jane went for a walk.; 
             "They then had coffee.;
