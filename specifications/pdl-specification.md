@@ -491,7 +491,7 @@ Representing a UTF-8 text token looks like this:
 
 PDL contains three different fields / token types that can contain textual data: 
 
-- Bytes - in UTF-8 encoding.
+- Bytes – in UTF-8 encoding.
 - ASCII
 - UTF-8
 
