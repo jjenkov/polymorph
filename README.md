@@ -40,6 +40,24 @@ project can be used for commercial use cases too – both in small companies and
   - [Web Technology Deficiencies](docs/web-technology-deficiencies.md)
 
 
+## Polymorph Architecture Overview
+
+![Polymorph Architecture Overview](resources/polymorph-architecture-overview.png)
+
+The Polymorph Player can be used in standalone mode, meaning you have all your data and your scripts locally.
+However, the Polymorph Player can also be used in a distributed mode - capable of communicating with other 
+Polymorph Player instances. You can share data with other Player instances via your own sharing mechanisms,
+or use some of the networking capabilities that will be built into the Polymorph Personal Compute Platform
+in the future.
+
+- PDL + PDE are used to represent data.
+- Pasm is used to represent simple scripts for interacting with the Player.
+- The VM is embedded in the Player, and can executed Pasm + PDL / PDE
+- The Player functionality can be activated via the Pasm scripts via the VM.
+- The Router can be used to communicate locally with other apps, or remotely with other Players or apps.
+- The Polyring is a flexible P2P network topology that can be used to implement many different styles of topologies.
+
+
 ## Directory Descriptions
 
 The `docs` directory contains various documentation about the Polymorph Personal Compute Project.
