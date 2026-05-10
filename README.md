@@ -56,6 +56,7 @@ in the future.
 - The Player functionality can be activated via the Pasm scripts via the VM.
 - The Router can be used to communicate locally with other apps, or remotely with other Players or apps.
 - The Polyring is a flexible P2P network topology that can be used to implement many different styles of topologies.
+- The AI Assistant will make it easier for less technical users to interact with the Polymorph platform.
 
 
 ## Directory Descriptions
