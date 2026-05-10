@@ -1,10 +1,11 @@
 ## Why Polymorph Personal Compute Platform ?
 
 I grew up during the personal computer (PC) revolution in the 1980'es and 1990'es. Back then, personal computing was
-very much about personal creativity, and to some extent about personal compute autonomy. 
+very much about personal creativity, and to some extent about personal compute autonomy. Local apps - local data.
 
 
 ## The Internet
+
 When the Internet was getting popular in the late 1990'es, I was super-excited to see how that would enhance
 personal computing. The early Internet and web were full of creativity.  
 
@@ -14,6 +15,7 @@ its users. An application on top of a P2P network.
 
 
 ## The Web
+
 Unfortunately, the Internet seems to have taken a very different turn. Most applications are web-based applications
 using a client-server architecture. All the user gets is the browser. The rest of the functionality comes from the server.
 
@@ -25,18 +27,25 @@ they want.
 
 This dependency is probably why so many individuals and organizations make web apps rather than stand-alone apps.
 Over time the users might build up a certain amount of data within that app that can be hard to move to another app later.
-That means, that without that web app you will have nothing. No functionality, and a lot of lost data.
+This means that without that web app you will have nothing. No functionality, and a lot of lost data.
+
+
+## Back to Personal Computing
+
+This dependency on web servers and application providers is what I want to change with the
+Polymorph Personal Compute Platform project. More specifically, to get to:
+
+- Local apps
+- Local data
+- Network communication between local computers via local networks or the Internet.
 
 
 ## Polymorph Personal Compute Platform
 
-This dependency on web servers and application providers is what I want to change with the 
-Polymorph Personal Compute Platform project.
- 
 The Polymorph Personal Compute Platform will consist of these core parts:
 
 - Polymorph Player
-- Polymorph Fabric
+- Polymorph Networking
 
 
 ### Polymorph Player
@@ -55,24 +64,17 @@ The Polymorph Player app will be scriptable, meaning you activate its functional
 you can reuse your scripts over and over again, and share them with other users if you want.
 
 
-### Polymorph Fabric
+### Polymorph Networking
 
-The Polymorph Fabric will be a communication fabric that enables Polymorph Players to communicate with each other.
-Thus, you can exchange data with other Polymorph users easily – P2P style.
-
-The Polymorph Fabric can also be used to connect multiple of your own computers into a local fabric. This local
-network can be connected to the global fabric too, if you want to. This enables a local - regional - global
-style P2P fabric. 
-
-Polymorph Fabric will not be available in the beginning, though. It is more important to get a good deal of 
-Player functionality available first. It is still possible to exchange Player scripts via existing communication
-channels.
+The Polymorph Networking part is a set of tools to support various styles of network communication.
+Exactly which styles of network communication that will be supported, we will figure out as the project
+progresses. Probably a mix of client-server, edge and P2P style networking. And of course - sneakernet ;-)
 
 
 ## Additional Parts
 
 The Polymorph Personal Compute Platform will consist of many smaller parts too, which will be used by or integrated
-into the Player and the Fabric. Some of these parts could potentially be used outside the Polymorph ecosystem too.
+into the Player and the Networking parts. Some of these parts could potentially be used outside the Polymorph ecosystem too.
 
 For instance, Polymorph will contain advanced data formats and an embeddable virtual machine. These parts could
 be used outside Polymorph – in other systems.
