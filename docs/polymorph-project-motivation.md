@@ -39,6 +39,12 @@ Polymorph Personal Compute Platform project. More specifically, to get to:
 - Local data
 - Network communication between local computers via local networks or the Internet.
 
+## AI
+
+AI has become incredibly powerful in the years since 2020 and forward. Seeing how much I use AI myself today in 2026,
+I think it is only natural to think about how to integrate AI into the Polymorph project too. 
+Preferably an AI assistant that runs on your local computer.
+
 
 ## Polymorph Personal Compute Platform
 
@@ -46,6 +52,7 @@ The Polymorph Personal Compute Platform will consist of these core parts:
 
 - Polymorph Player
 - Polymorph Networking
+- Polymorph AI Assistant
 
 
 ### Polymorph Player
@@ -69,6 +76,16 @@ you can reuse your scripts over and over again, and share them with other users 
 The Polymorph Networking part is a set of tools to support various styles of network communication.
 Exactly which styles of network communication that will be supported, we will figure out as the project
 progresses. Probably a mix of client-server, edge and P2P style networking. And of course - sneakernet ;-)
+
+
+## Polymorph AI Assistant
+
+When the core parts of the Polymorph platform work, it is natural to start thinking about how to integrate
+AI into the platform. Preferably in the form of an AI assistant that knows the Polymorph platform well 
+and which runs locally on your computer.
+
+The Polymorph AI Assistant will most likely not be a general purpose AI assistant, but an AI assistant
+focused on helping you with Polymorph-related tasks.
 
 
 ## Additional Parts
