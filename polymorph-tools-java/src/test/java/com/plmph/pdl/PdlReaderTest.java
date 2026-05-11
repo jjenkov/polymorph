@@ -2,6 +2,7 @@ package com.plmph.pdl;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,15 @@ public class PdlReaderTest {
 
         pdlSource.tokenOffsetPairsLength = PdlTokenizer.tokenize_for(pdlSource.source, 0, pdlSource.source.length, pdlSource.tokenOffsetPairs);
 
-        pdlReader.instructions.put("address", (args) -> {
+        pdlReader.instructions.put("address", (reader) -> {
+
+            List args = new ArrayList();
+            Object value = reader.read();
+            while(value != PdlReader.TOKEN_TYPE_INSTRUCTION_END){
+                args.add(value);
+                value = pdlReader.read();
+            }
+
             Map address = new HashMap();
             address.put("street", args.get(0));
             address.put("number", args.get(1));

@@ -18,7 +18,7 @@ public class PdlReader {
     public PdlSource pdlSource = null;
     public int tokenOffsetPairsIndex = 0;
 
-    public Map<String, Function<List, Object>> instructions = new HashMap<>();
+    public Map<String, Function<PdlReader, Object>> instructions = new HashMap<>();
 
     public PdlReader init(PdlSource pdlSource){
         this.pdlSource = pdlSource;
@@ -170,15 +170,7 @@ public class PdlReader {
             case 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z': {
                 String instruction = new String(source, tokenStartOffset, tokenEndOffset - tokenStartOffset - 1);
-
-                List args = new ArrayList();
-                value = read();
-                while(value != TOKEN_TYPE_INSTRUCTION_END){
-                    args.add(value);
-                    value = read();
-                }
-
-                value = instructions.get(instruction).apply(args);
+                value = instructions.get(instruction).apply(this);
                 break;
             }
             case ')' : {
