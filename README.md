@@ -13,6 +13,16 @@ The two primary themes of personal computing are:
 However, in the Internet age we want network communication too, so you can share data with other users
 more easily. Or - share data between your own computers more easily.
 
+Additionally, in the AI age we may want local AI too. So:
+
+- Local apps
+- Local data
+- Local AI
+- Networking capabilities
+
+Local apps and data are the primary focus. AI and networking capabilities will be added when local apps and data
+are working well.
+
 
 ## The Polymorph Project
 The Polymorph project aims at providing a wide variety of common personal computing functionality that is easily accessible
