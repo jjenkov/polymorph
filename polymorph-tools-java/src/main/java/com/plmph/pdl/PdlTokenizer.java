@@ -22,10 +22,10 @@ public class PdlTokenizer {
         tokenEndCharacters['*'] = '~';
 
         // tokens that start with a letter (a-z + A-Z) are named tokens ending with a ( as end character.
-        for(int i='a'; i<'z'; i++){
+        for(int i='a'; i<='z'; i++){
             tokenEndCharacters[i] = '(';
         }
-        for(int i='A'; i<'Z'; i++){
+        for(int i='A'; i<='Z'; i++){
             tokenEndCharacters[i] = '(';
         }
     }
