@@ -549,7 +549,7 @@ Maybe I will get around to supporting nanoseconds in PDL in the future.
 
 
 ### ID
-The PDL ID token represents an identifier you can reference via copy or reference field. 
+The PDL ID token represents an identifier you can reference via copy or reference fields. 
 There is no corresponding ID field in PDE. 
 
 The PDL ID token represents an "address" or "location" in the PDL script which can be referenced by
@@ -618,6 +618,8 @@ This example represents a reference from the "spouse" property of the second obj
 
 The PDL reference field is useful when you need to represent object graphs where one object references another.
 
+
+## Cyclic Object Graphs
 PDL reference fields can also be used to represent cyclic object graphs. 
 Here is an example of a cyclic object graph:
 
@@ -660,6 +662,7 @@ Here are some PDL object fields with nested fields inside:
 
 The fields inside these object fields are key and value tokens representing property names
 and values.
+
 
 #### Compact Objects
 
@@ -841,9 +844,11 @@ Here is the same example minified:
 
     {.field1;"value;.field2;123;.field3;/123.45;.field4;!1;}
 
-Tokenizing minified PDL can be faster than tokenizing non-minified PDL, for two reasons.
-First, minified PDL simply has fewer characters to process. Second, you don't need to scan for
-whitespace characters in between the PDL tokens. This removes the loop checking for whitespace characters
+Tokenizing minified PDL can be faster than tokenizing non-minified PDL, for two reasons:
+
+First, minified PDL simply has fewer characters to process.
+
+Second, you don't need to scan for whitespace characters in between the PDL tokens. This removes the loop checking for whitespace characters
 from the tokenization process, making it simpler and faster.
 
 
