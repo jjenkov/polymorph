@@ -114,7 +114,7 @@ PDE files do not need to have only a single root field. They can have as many PD
 
 A PDE stream is just like a PDE file. In fact, a PDE file is also a PDE stream. 
 The only difference between files and streams is where you get the PDE stream from. 
-A PDE stream you might get returned from a remote service call - or sent to you in an event notification - or similar.
+A PDE stream you might get returned from a remote service call – or sent to you in an event notification - or similar.
 However, there is no functional difference to a PDE file.
 
 
@@ -218,10 +218,10 @@ within the same multi-sub-stream stream.
 
 
 ## PDE Fields Are Either Atomic or Composite
-PDE fields can either be atomic or composite. 
+As mentioned earlier, PDE fields can either be atomic or composite. 
 
  - An atomic field only contains a single raw data value. 
- - A composite field contains other PDE fields nested inside it. A composite field has no raw value of its own - only the nested PDE fields.
+ - A composite field contains other PDE fields nested inside it. A composite field has no raw value of its own – only the nested PDE fields.
 
 A boolean PDE field is an example of an atomic field. It only contains a single null, true or false value.
 
@@ -317,199 +317,208 @@ Note: The text following a # is just a comment - not part of the data.
 The first byte of a PDE field is the PDE field's type code. The available PDE field type codes are listed in the table below. 
 
 
-| Type Code   | Field Name              | Field Description                                                                                                                          |
-|-------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 0           | BOOLEAN_NULL            | A single byte with the value 0 - representing a boolean field with a null value.                                                           |
-| 1           | BOOLEAN_TRUE            | A single byte with the value 1 - representing a boolean field with the value true.                                                         |
-| 2           | BOOLEAN_FALSE           | A single byte with the value 2 - representing a boolean field with the value false.                                                        |
-| 3           | INT_NULL                | A single byte representing an Integer field with the value null.                                                                           | 
-| 4           | INT_POS_1_BYTES         | An positive integer field which value is 1 byte long.                                                                                      |
-| 5           | INT_POS_2_BYTES         | An positive integer field which value is 2 bytes long.                                                                                     |
-| 6           | INT_POS_3_BYTES         | An positive integer field which value is 3 bytes long.                                                                                     |
-| 7           | INT_POS_4_BYTES         | An positive integer field which value is 4 bytes long.                                                                                     |
-| 8           | INT_POS_5_BYTES         | An positive integer field which value is 5 bytes long.                                                                                     |
-| 9           | INT_POS_6_BYTES         | An positive integer field which value is 6 bytes long.                                                                                     |
-| 10          | INT_POS_7_BYTES         | An positive integer field which value is 7 bytes long.                                                                                     |
-| 11          | INT_POS_8_BYTES         | An positive integer field which value is 8 bytes long.                                                                                     |
-| 12          | INT_NEG_1_BYTES         | An negative integer field which value is 1 byte long.                                                                                      |
-| 13          | INT_NEG_2_BYTES         | An negative integer field which value is 2 bytes long.                                                                                     |
-| 14          | INT_NEG_3_BYTES         | An negative integer field which value is 3 bytes long.                                                                                     |
-| 15          | INT_NEG_4_BYTES         | An negative integer field which value is 4 bytes long.                                                                                     |
-| 16          | INT_NEG_5_BYTES         | An negative integer field which value is 5 bytes long.                                                                                     |
-| 17          | INT_NEG_6_BYTES         | An negative integer field which value is 6 bytes long.                                                                                     |
-| 18          | INT_NEG_7_BYTES         | An negative integer field which value is 7 bytes long.                                                                                     |
-| 19          | INT_NEG_8_BYTES         | An negative integer field which value is 8 bytes long.                                                                                     |
-| 20          | FLOAT_NULL              | A 1 byte long field representing a float field with a null value.                                                                          |
-| 21          | FLOAT_4_BYTES           | A float field which value is 4 bytes long (32 bit float).                                                                                  |
-| 22          | FLOAT_8_BYTES           | A float field which value is 8 bytes long (64 bit float).                                                                                  |
-| 23          | BYTES_NULL              | A single byte field representing a Bytes field with the value null.                                                                        |
-| 24          | BYTES_0_BYTES           | A single byte field representing a Bytes field with a length of 0 bytes (empty).                                                           |
-| 25          | BYTES_1_BYTES           | A bytes field with a value that is 1 byte long.                                                                                            |
-| 26          | BYTES_2_BYTES           | A bytes field with a value that is 2 bytes long.                                                                                           |
-| 27          | BYTES_3_BYTES           | A bytes field with a value that is 3 bytes long.                                                                                           |
-| 28          | BYTES_4_BYTES           | A bytes field with a value that is 4 bytes long.                                                                                           |
-| 29          | BYTES_5_BYTES           | A bytes field with a value that is 5 bytes long.                                                                                           |
-| 30          | BYTES_6_BYTES           | A bytes field with a value that is 6 bytes long.                                                                                           |
-| 31          | BYTES_7_BYTES           | A bytes field with a value that is 7 bytes long.                                                                                           |
-| 32          | BYTES_8_BYTES           | A bytes field with a value that is 8 bytes long.                                                                                           |
-| 33          | BYTES_9_BYTES           | A bytes field with a value that is 9 bytes long.                                                                                           |
-| 34          | BYTES_10_BYTES          | A bytes field with a value that is 10 bytes long.                                                                                          |
-| 35          | BYTES_11BYTES           | A bytes field with a value that is 11 bytes long.                                                                                          |
-| 36          | BYTES_12_BYTES          | A bytes field with a value that is 12 bytes long.                                                                                          |
-| 37          | BYTES_13_BYTES          | A bytes field with a value that is 13 bytes long.                                                                                          |
-| 38          | BYTES_14_BYTES          | A bytes field with a value that is 14 bytes long.                                                                                          |
-| 39          | BYTES_15_BYTES          | A bytes field with a value that is 15 bytes long.                                                                                          |
-| 40          | BYTES_1_LENGTH_BYTES    | A bytes field that uses 1 length byte to represent the length of the field value.                                                          |
-| 41          | BYTES_2_LENGTH_BYTES    | A bytes field that uses 2 length byte to represent the length of the field value.                                                          |
-| 42          | BYTES_3_LENGTH_BYTES    | A bytes field that uses 3 length byte to represent the length of the field value.                                                          |
-| 43          | BYTES_4_LENGTH_BYTES    | A bytes field that uses 4 length byte to represent the length of the field value.                                                          |
-| 44          | BYTES_5_LENGTH_BYTES    | A bytes field that uses 5 length byte to represent the length of the field value.                                                          |
-| 45          | BYTES_6_LENGTH_BYTES    | A bytes field that uses 6 length byte to represent the length of the field value.                                                          |
-| 46          | BYTES_7_LENGTH_BYTES    | A bytes field that uses 7 length byte to represent the length of the field value.                                                          |
-| 47          | BYTES_8_LENGTH_BYTES    | A bytes field that uses 8 length byte to represent the length of the field value.                                                          |
-| 48          | ASCII_NULL              | A single byte field representing an ASCII field with the value null.                                                                       |
-| 49          | ASCII_0_BYTES           | A single byte field representing an ASCII field with a length of 0 bytes (empty).                                                          |
-| 50          | ASCII_1_BYTES           | An ASCII field with a value that is 1 byte long.                                                                                           |
-| 51          | ASCII_2_BYTES           | An ASCII field with a value that is 2 bytes long.                                                                                          |
-| 52          | ASCII_3_BYTES           | An ASCII field with a value that is 3 bytes long.                                                                                          |
-| 53          | ASCII_4_BYTES           | An ASCII field with a value that is 4 bytes long.                                                                                          |
-| 54          | ASCII_5_BYTES           | An ASCII field with a value that is 5 bytes long.                                                                                          |
-| 55          | ASCII_6_BYTES           | An ASCII field with a value that is 6 bytes long.                                                                                          |
-| 56          | ASCII_7_BYTES           | An ASCII field with a value that is 7 bytes long.                                                                                          |
-| 57          | ASCII_8_BYTES           | An ASCII field with a value that is 8 bytes long.                                                                                          |
-| 58          | ASCII_9_BYTES           | An ASCII field with a value that is 9 bytes long.                                                                                          |
-| 59          | ASCII_10_BYTES          | An ASCII field with a value that is 10 bytes long.                                                                                         |
-| 60          | ASCII_11BYTES           | An ASCII field with a value that is 11 bytes long.                                                                                         |
-| 61          | ASCII_12_BYTES          | An ASCII field with a value that is 12 bytes long.                                                                                         |
-| 62          | ASCII_13_BYTES          | An ASCII field with a value that is 13 bytes long.                                                                                         |
-| 63          | ASCII_14_BYTES          | An ASCII field with a value that is 14 bytes long.                                                                                         |
-| 64          | ASCII_15_BYTES          | An ASCII field with a value that is 15 bytes long.                                                                                         |
-| 65          | ASCII_1_LENGTH_BYTES    | An ASCII field that uses 1 length byte to represent the length of the field value.                                                         |
-| 66          | ASCII_2_LENGTH_BYTES    | An ASCII field that uses 2 length byte to represent the length of the field value.                                                         |
-| 67          | ASCII_3_LENGTH_BYTES    | An ASCII field that uses 3 length byte to represent the length of the field value.                                                         |
-| 68          | ASCII_4_LENGTH_BYTES    | An ASCII field that uses 4 length byte to represent the length of the field value.                                                         |
-| 69          | ASCII_5_LENGTH_BYTES    | An ASCII field that uses 5 length byte to represent the length of the field value.                                                         |
-| 70          | ASCII_6_LENGTH_BYTES    | An ASCII field that uses 6 length byte to represent the length of the field value.                                                         |
-| 71          | ASCII_7_LENGTH_BYTES    | An ASCII field that uses 7 length byte to represent the length of the field value.                                                         |
-| 72          | ASCII_8_LENGTH_BYTES    | An ASCII field that uses 8 length byte to represent the length of the field value.                                                         |
-| 73          | UTF_8_NULL              | A single UTF-8 field representing a Bytes field with the value null.                                                                       |
-| 74          | UTF_8_0_BYTES           | A single UTF-8 field representing a Bytes field with a length of 0 bytes (empty).                                                          |
-| 75          | UTF_8_1_BYTES           | A UTF-8 field with a value that is 1 byte long.                                                                                            |
-| 76          | UTF_8_2_BYTES           | A UTF-8 field with a value that is 2 bytes long.                                                                                           |
-| 77          | UTF_8_3_BYTES           | A UTF-8 field with a value that is 3 bytes long.                                                                                           |
-| 78          | UTF_8_4_BYTES           | A UTF-8 field with a value that is 4 bytes long.                                                                                           |
-| 79          | UTF_8_5_BYTES           | A UTF-8 field with a value that is 5 bytes long.                                                                                           |
-| 80          | UTF_8_6_BYTES           | A UTF-8 field with a value that is 6 bytes long.                                                                                           |
-| 81          | UTF_8_7_BYTES           | A UTF-8 field with a value that is 7 bytes long.                                                                                           |
-| 82          | UTF_8_8_BYTES           | A UTF-8 field with a value that is 8 bytes long.                                                                                           |
-| 83          | UTF_8_9_BYTES           | A UTF-8 field with a value that is 9 bytes long.                                                                                           |
-| 84          | UTF_8_10_BYTES          | A UTF-8 field with a value that is 10 bytes long.                                                                                          |
-| 85          | UTF_8_11_BYTES          | A UTF-8 field with a value that is 11 bytes long.                                                                                          |
-| 86          | UTF_8_12_BYTES          | A UTF-8 field with a value that is 12 bytes long.                                                                                          |
-| 87          | UTF_8_13_BYTES          | A UTF-8 field with a value that is 13 bytes long.                                                                                          |
-| 88          | UTF_8_14_BYTES          | A UTF-8 field with a value that is 14 bytes long.                                                                                          |
-| 89          | UTF_8_15_BYTES          | A UTF-8 field with a value that is 15 bytes long.                                                                                          |
-| 90          | UTF_8_1_LENGTH_BYTES    | A UTF-8 field that uses 1 length byte to represent the length of the field value.                                                          |
-| 91          | UTF_8_2_LENGTH_BYTES    | A UTF-8 field that uses 2 length byte to represent the length of the field value.                                                          |
-| 92          | UTF_8_3_LENGTH_BYTES    | A UTF-8 field that uses 3 length byte to represent the length of the field value.                                                          |
-| 93          | UTF_8_4_LENGTH_BYTES    | A UTF-8 field that uses 4 length byte to represent the length of the field value.                                                          |
-| 94          | UTF_8_5_LENGTH_BYTES    | A UTF-8 field that uses 5 length byte to represent the length of the field value.                                                          |
-| 95          | UTF_8_6_LENGTH_BYTES    | A UTF-8 field that uses 6 length byte to represent the length of the field value.                                                          |
-| 96          | UTF_8_7_LENGTH_BYTES    | A UTF-8 field that uses 7 length byte to represent the length of the field value.                                                          |
-| 97          | UTF_8_8_LENGTH_BYTES    | A UTF-8 field that uses 8 length byte to represent the length of the field value.                                                          |
-| 98          | UTC_NULL                | A UTC field with a null value.                                                                                                             |
-| 99          | UTC_2_BYTES             | A UTC field with only a year specified - in its 2 bytes.                                                                                   |
-| 100         | UTC_3_BYTES             | A UTC field with a year and month specified - in its 3 bytes.                                                                              |
-| 101         | UTC_4_BYTES             | A UTC field with a year, month and day specified - in its 4 bytes.                                                                         |
-| 102         | UTC_5_BYTES             | A UTC field with a year, month, day and hour specified - in its 5 bytes.                                                                   |
-| 103         | UTC_6_BYTES             | A UTC field with a year, month, day, hour and minutes specified - in its 6 bytes.                                                          |
-| 104         | UTC_7_BYTES             | A UTC field with a year, month, day, hour, minute and seconds specified - in its 7 bytes.                                                  |
-| 105         | UTC_8_BYTES             | A UTC field with a UTC timestamp in milliseconds in its 8 bytes.                                                                           |
-| 106         | UTC_9_BYTES             | A UTC field with a year, month, day, hour, minutes, seconds + milliseconds specified - in its 9 bytes.                                     |
-| 107         | UTC_10_BYTES            | A UTC field with a year, month, day, hour, minutes, seconds + nanoseconds specified - in its 10 bytes.                                     |
-| 108         | COPY_1_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 1 byte to represent the relative offset.       |
-| 109         | COPY_2_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 2 bytes to represent the relative offset.      |
-| 110         | COPY_3_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 3 bytes to represent the relative offset.      |
-| 111         | COPY_4_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 4 bytes to represent the relative offset.      |
-| 112         | COPY_5_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 5 bytes to represent the relative offset.      |
-| 113         | COPY_6_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 6 bytes to represent the relative offset.      |
-| 114         | COPY_7_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 7 bytes to represent the relative offset.      |
-| 115         | COPY_8_BYTES            | A copy of another field found a relative number of bytes earlier in this PDE stream - using 8 bytes to represent the relative offset.      |
-| 116         | REFERENCE_1_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 1 byte to represent the relative offset.  |
-| 117         | REFERENCE_2_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 2 bytes to represent the relative offset. |
-| 118         | REFERENCE_3_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 3 bytes to represent the relative offset. |
-| 119         | REFERENCE_4_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 4 bytes to represent the relative offset. |
-| 120         | REFERENCE_5_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 5 bytes to represent the relative offset. |
-| 121         | REFERENCE_6_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 6 bytes to represent the relative offset. |
-| 122         | REFERENCE_7_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 7 bytes to represent the relative offset. |
-| 123         | REFERENCE_8_BYTES       | A reference to another field found a relative number of bytes earlier in this PDE stream - using 8 bytes to represent the relative offset. |
-| 124         | KEY_NULL                | A key field with a null value.                                                                                                             |
-| 125         | KEY_0_BYTES             | A key field with an empty value.                                                                                                           |
-| 126         | KEY_1_BYTES             | A key field with a 1 byte value.                                                                                                           |
-| 127         | KEY_2_BYTES             | A key field with a 2 byte value.                                                                                                           |
-| 128         | KEY_3_BYTES             | A key field with a 3 byte value.                                                                                                           |
-| 129         | KEY_4_BYTES             | A key field with a 4 byte value.                                                                                                           |
-| 130         | KEY_5_BYTES             | A key field with a 5 byte value.                                                                                                           |
-| 131         | KEY_6_BYTES             | A key field with a 6 byte value.                                                                                                           |
-| 132         | KEY_7_BYTES             | A key field with a 7 byte value.                                                                                                           |
-| 133         | KEY_8_BYTES             | A key field with a 8 byte value.                                                                                                           |
-| 134         | KEY_9_BYTES             | A key field with a 9 byte value.                                                                                                           |
-| 135         | KEY_10_BYTES            | A key field with a 10 byte value.                                                                                                          |
-| 136         | KEY_11_BYTES            | A key field with a 11 byte value.                                                                                                          |
-| 137         | KEY_12_BYTES            | A key field with a 12 byte value.                                                                                                          |
-| 138         | KEY_13_BYTES            | A key field with a 13 byte value.                                                                                                          |
-| 139         | KEY_14_BYTES            | A key field with a 14 byte value.                                                                                                          |
-| 140         | KEY_15_BYTES            | A key field with a 15 byte value.                                                                                                          |
-| 141         | KEY_1_LENGTH_BYTES      | A key field with 1 length byte to represent the length of its value.                                                                       |
-| 142         | KEY_2_LENGTH_BYTES      | A key field with 2 length bytes to represent the length of its value.                                                                      |
-| 143         | OBJECT_NULL             | An object field with a null value.                                                                                                         |
-| 144         | OBJECT_1_LENGTH_BYTES   | An object field with 1 length byte to represent the length of its value (nested fields).                                                   |
-| 145         | OBJECT_2_LENGTH_BYTES   | An object field with 2 length byte to represent the length of its value (nested fields).                                                   |
-| 146         | OBJECT_3_LENGTH_BYTES   | An object field with 3 length byte to represent the length of its value (nested fields).                                                   |
-| 147         | OBJECT_4_LENGTH_BYTES   | An object field with 4 length byte to represent the length of its value (nested fields).                                                   |
-| 148         | OBJECT_5_LENGTH_BYTES   | An object field with 5 length byte to represent the length of its value (nested fields).                                                   |
-| 149         | OBJECT_6_LENGTH_BYTES   | An object field with 6 length byte to represent the length of its value (nested fields).                                                   |
-| 150         | OBJECT_7_LENGTH_BYTES   | An object field with 7 length byte to represent the length of its value (nested fields).                                                   |
-| 151         | OBJECT_8_LENGTH_BYTES   | An object field with 8 length byte to represent the length of its value (nested fields).                                                   |
-| 152         | TABLE_NULL              | An table field with a null value.                                                                                                          |
-| 153         | TABLE_1_LENGTH_BYTES    | An table field with 1 length byte to represent the length of its value (nested fields).                                                    |
-| 154         | TABLE_2_LENGTH_BYTES    | An table field with 2 length byte to represent the length of its value (nested fields).                                                    |
-| 155         | TABLE_3_LENGTH_BYTES    | An table field with 3 length byte to represent the length of its value (nested fields).                                                    |
-| 156         | TABLE_4_LENGTH_BYTES    | An table field with 4 length byte to represent the length of its value (nested fields).                                                    |
-| 157         | TABLE_5_LENGTH_BYTES    | An table field with 5 length byte to represent the length of its value (nested fields).                                                    |
-| 158         | TABLE_6_LENGTH_BYTES    | An table field with 6 length byte to represent the length of its value (nested fields).                                                    |
-| 159         | TABLE_7_LENGTH_BYTES    | An table field with 7 length byte to represent the length of its value (nested fields).                                                    |
-| 160         | TABLE_8_LENGTH_BYTES    | An table field with 8 length byte to represent the length of its value (nested fields).                                                    |
-| 161 ... 230 | [ Unassigned ]          | These codes have not yet been assigned to any field.                                                                                       |
-| 231         | METADATA_NULL           | A metadata field with a null value.                                                                                                        |
-| 232         | METADATA_1_LENGTH_BYTES | A metadata field using 1 byte to represent the length of its body (value => nested fields).                                                |
-| 233         | METADATA_2_LENGTH_BYTES | A metadata field using 2 bytes to represent the length of its body (value => nested fields).                                               |
-| 234         | METADATA_3_LENGTH_BYTES | A metadata field using 3 bytes to represent the length of its body (value => nested fields).                                               |
-| 235         | METADATA_4_LENGTH_BYTES | A metadata field using 4 bytes to represent the length of its body (value => nested fields).                                               |
-| 236         | METADATA_5_LENGTH_BYTES | A metadata field using 5 bytes to represent the length of its body (value => nested fields).                                               |
-| 237         | METADATA_6_LENGTH_BYTES | A metadata field using 6 bytes to represent the length of its body (value => nested fields).                                               |
-| 238         | METADATA_7_LENGTH_BYTES | A metadata field using 7 bytes to represent the length of its body (value => nested fields).                                               |
-| 239         | METADATA_8_LENGTH_BYTES | A metadata field using 8 bytes to represent the length of its body (value => nested fields).                                               |
-| 240         | EXTENSION_B_1_BYTES     | An extension B field using 1 extra byte to contain the extended field type.                                                                |
-| 241         | EXTENSION_B_2_BYTES     | An extension B field using 2 extra bytes to contain the extended field type.                                                               |
-| 242         | EXTENSION_B_3_BYTES     | An extension B field using 3 extra bytes to contain the extended field type.                                                               |
-| 243         | EXTENSION_B_4_BYTES     | An extension B field using 4 extra bytes to contain the extended field type.                                                               |
-| 244         | EXTENSION_B_5_BYTES     | An extension B field using 5 extra bytes to contain the extended field type.                                                               |
-| 245         | EXTENSION_B_6_BYTES     | An extension B field using 6 extra bytes to contain the extended field type.                                                               |
-| 246         | EXTENSION_B_7_BYTES     | An extension B field using 7 extra bytes to contain the extended field type.                                                               |
-| 247         | EXTENSION_B_8_BYTES     | An extension B field using 8 extra bytes to contain the extended field type.                                                               |
-| 248         | EXTENSION_A_1_BYTES     | An extension A field using 1 extra byte to contain the extended field type.                                                                |
-| 249         | EXTENSION_A_2_BYTES     | An extension A field using 2 extra bytes to contain the extended field type.                                                               |
-| 250         | EXTENSION_A_3_BYTES     | An extension A field using 3 extra bytes to contain the extended field type.                                                               |
-| 251         | EXTENSION_A_4_BYTES     | An extension A field using 4 extra bytes to contain the extended field type.                                                               |
-| 252         | EXTENSION_A_5_BYTES     | An extension A field using 5 extra bytes to contain the extended field type.                                                               |
-| 253         | EXTENSION_A_6_BYTES     | An extension A field using 6 extra bytes to contain the extended field type.                                                               |
-| 254         | EXTENSION_A_7_BYTES     | An extension A field using 7 extra bytes to contain the extended field type.                                                               |
-| 255         | EXTENSION_A_8_BYTES     | An extension A field using 8 extra bytes to contain the extended field type.                                                               |
+| Type Code  | Field Name      | Field Description                                                                                                                          |
+|------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| 0          | BOOLEAN_NULL    | A single byte with the value 0 - representing a boolean field with a null value.                                                           |
+| 1          | BOOLEAN_TRUE    | A single byte with the value 1 - representing a boolean field with the value true.                                                         |
+| 2          | BOOLEAN_FALSE   | A single byte with the value 2 - representing a boolean field with the value false.                                                        |
+| 3          | INT_NULL        | A single byte representing an Integer field with the value null.                                                                           | 
+| 4          | INT_POS_1_BYTES | An positive integer field which value is 1 byte long.                                                                                      |
+| 5          | INT_POS_2_BYTES | An positive integer field which value is 2 bytes long.                                                                                     |
+| 6          | INT_POS_3_BYTES | An positive integer field which value is 3 bytes long.                                                                                     |
+| 7          | INT_POS_4_BYTES | An positive integer field which value is 4 bytes long.                                                                                     |
+| 8          | INT_POS_5_BYTES | An positive integer field which value is 5 bytes long.                                                                                     |
+| 9          | INT_POS_6_BYTES | An positive integer field which value is 6 bytes long.                                                                                     |
+| 10         | INT_POS_7_BYTES | An positive integer field which value is 7 bytes long.                                                                                     |
+| 11         | INT_POS_8_BYTES | An positive integer field which value is 8 bytes long.                                                                                     |
+| 12         | INT_NEG_1_BYTES | An negative integer field which value is 1 byte long.                                                                                      |
+| 13         | INT_NEG_2_BYTES | An negative integer field which value is 2 bytes long.                                                                                     |
+| 14         | INT_NEG_3_BYTES | An negative integer field which value is 3 bytes long.                                                                                     |
+| 15         | INT_NEG_4_BYTES | An negative integer field which value is 4 bytes long.                                                                                     |
+| 16         | INT_NEG_5_BYTES | An negative integer field which value is 5 bytes long.                                                                                     |
+| 17         | INT_NEG_6_BYTES | An negative integer field which value is 6 bytes long.                                                                                     |
+| 18         | INT_NEG_7_BYTES | An negative integer field which value is 7 bytes long.                                                                                     |
+| 19         | INT_NEG_8_BYTES | An negative integer field which value is 8 bytes long.                                                                                     |
+| 20         | FLOAT_NULL      | A 1 byte long field representing a float field with a null value.                                                                          |
+| 21         | FLOAT_4_BYTES   | A float field which value is 4 bytes long (32 bit float).                                                                                  |
+| 22         | FLOAT_8_BYTES   | A float field which value is 8 bytes long (64 bit float).                                                                                  |
+| 23         | BYTES_NULL      | A single byte field representing a Bytes field with the value null.                                                                        |
+| 24         | BYTES_0_BYTES   | A single byte field representing a Bytes field with a length of 0 bytes (empty).                                                           |
+| 25         | BYTES_1_BYTES   | A bytes field with a value that is 1 byte long.                                                                                            |
+| 26         | BYTES_2_BYTES   | A bytes field with a value that is 2 bytes long.                                                                                           |
+| 27         | BYTES_3_BYTES   | A bytes field with a value that is 3 bytes long.                                                                                           |
+| 28         | BYTES_4_BYTES   | A bytes field with a value that is 4 bytes long.                                                                                           |
+| 29         | BYTES_5_BYTES   | A bytes field with a value that is 5 bytes long.                                                                                           |
+| 30         | BYTES_6_BYTES   | A bytes field with a value that is 6 bytes long.                                                                                           |
+| 31         | BYTES_7_BYTES   | A bytes field with a value that is 7 bytes long.                                                                                           |
+| 32         | BYTES_8_BYTES   | A bytes field with a value that is 8 bytes long.                                                                                           |
+| 33         | BYTES_9_BYTES   | A bytes field with a value that is 9 bytes long.                                                                                           |
+| 34         | BYTES_10_BYTES  | A bytes field with a value that is 10 bytes long.                                                                                          |
+| 35         | BYTES_11BYTES   | A bytes field with a value that is 11 bytes long.                                                                                          |
+| 36         | BYTES_12_BYTES  | A bytes field with a value that is 12 bytes long.                                                                                          |
+| 37         | BYTES_13_BYTES  | A bytes field with a value that is 13 bytes long.                                                                                          |
+| 38         | BYTES_14_BYTES  | A bytes field with a value that is 14 bytes long.                                                                                          |
+| 39         | BYTES_15_BYTES  | A bytes field with a value that is 15 bytes long.                                                                                          |
+| 40         | BYTES_1_LENGTH_BYTES | A bytes field that uses 1 length byte to represent the length of the field value.                                                          |
+| 41         | BYTES_2_LENGTH_BYTES | A bytes field that uses 2 length byte to represent the length of the field value.                                                          |
+| 42         | BYTES_3_LENGTH_BYTES | A bytes field that uses 3 length byte to represent the length of the field value.                                                          |
+| 43         | BYTES_4_LENGTH_BYTES | A bytes field that uses 4 length byte to represent the length of the field value.                                                          |
+| 44         | BYTES_5_LENGTH_BYTES | A bytes field that uses 5 length byte to represent the length of the field value.                                                          |
+| 45         | BYTES_6_LENGTH_BYTES | A bytes field that uses 6 length byte to represent the length of the field value.                                                          |
+| 46         | BYTES_7_LENGTH_BYTES | A bytes field that uses 7 length byte to represent the length of the field value.                                                          |
+| 47         | BYTES_8_LENGTH_BYTES | A bytes field that uses 8 length byte to represent the length of the field value.                                                          |
+| 48         | ASCII_NULL      | A single byte field representing an ASCII field with the value null.                                                                       |
+| 49         | ASCII_0_BYTES   | A single byte field representing an ASCII field with a length of 0 bytes (empty).                                                          |
+| 50         | ASCII_1_BYTES   | An ASCII field with a value that is 1 byte long.                                                                                           |
+| 51         | ASCII_2_BYTES   | An ASCII field with a value that is 2 bytes long.                                                                                          |
+| 52         | ASCII_3_BYTES   | An ASCII field with a value that is 3 bytes long.                                                                                          |
+| 53         | ASCII_4_BYTES   | An ASCII field with a value that is 4 bytes long.                                                                                          |
+| 54         | ASCII_5_BYTES   | An ASCII field with a value that is 5 bytes long.                                                                                          |
+| 55         | ASCII_6_BYTES   | An ASCII field with a value that is 6 bytes long.                                                                                          |
+| 56         | ASCII_7_BYTES   | An ASCII field with a value that is 7 bytes long.                                                                                          |
+| 57         | ASCII_8_BYTES   | An ASCII field with a value that is 8 bytes long.                                                                                          |
+| 58         | ASCII_9_BYTES   | An ASCII field with a value that is 9 bytes long.                                                                                          |
+| 59         | ASCII_10_BYTES  | An ASCII field with a value that is 10 bytes long.                                                                                         |
+| 60         | ASCII_11BYTES   | An ASCII field with a value that is 11 bytes long.                                                                                         |
+| 61         | ASCII_12_BYTES  | An ASCII field with a value that is 12 bytes long.                                                                                         |
+| 62         | ASCII_13_BYTES  | An ASCII field with a value that is 13 bytes long.                                                                                         |
+| 63         | ASCII_14_BYTES  | An ASCII field with a value that is 14 bytes long.                                                                                         |
+| 64         | ASCII_15_BYTES  | An ASCII field with a value that is 15 bytes long.                                                                                         |
+| 65         | ASCII_1_LENGTH_BYTES | An ASCII field that uses 1 length byte to represent the length of the field value.                                                         |
+| 66         | ASCII_2_LENGTH_BYTES | An ASCII field that uses 2 length byte to represent the length of the field value.                                                         |
+| 67         | ASCII_3_LENGTH_BYTES | An ASCII field that uses 3 length byte to represent the length of the field value.                                                         |
+| 68         | ASCII_4_LENGTH_BYTES | An ASCII field that uses 4 length byte to represent the length of the field value.                                                         |
+| 69         | ASCII_5_LENGTH_BYTES | An ASCII field that uses 5 length byte to represent the length of the field value.                                                         |
+| 70         | ASCII_6_LENGTH_BYTES | An ASCII field that uses 6 length byte to represent the length of the field value.                                                         |
+| 71         | ASCII_7_LENGTH_BYTES | An ASCII field that uses 7 length byte to represent the length of the field value.                                                         |
+| 72         | ASCII_8_LENGTH_BYTES | An ASCII field that uses 8 length byte to represent the length of the field value.                                                         |
+| 73         | UTF_8_NULL      | A single UTF-8 field representing a Bytes field with the value null.                                                                       |
+| 74         | UTF_8_0_BYTES   | A single UTF-8 field representing a Bytes field with a length of 0 bytes (empty).                                                          |
+| 75         | UTF_8_1_BYTES   | A UTF-8 field with a value that is 1 byte long.                                                                                            |
+| 76         | UTF_8_2_BYTES   | A UTF-8 field with a value that is 2 bytes long.                                                                                           |
+| 77         | UTF_8_3_BYTES   | A UTF-8 field with a value that is 3 bytes long.                                                                                           |
+| 78         | UTF_8_4_BYTES   | A UTF-8 field with a value that is 4 bytes long.                                                                                           |
+| 79         | UTF_8_5_BYTES   | A UTF-8 field with a value that is 5 bytes long.                                                                                           |
+| 80         | UTF_8_6_BYTES   | A UTF-8 field with a value that is 6 bytes long.                                                                                           |
+| 81         | UTF_8_7_BYTES   | A UTF-8 field with a value that is 7 bytes long.                                                                                           |
+| 82         | UTF_8_8_BYTES   | A UTF-8 field with a value that is 8 bytes long.                                                                                           |
+| 83         | UTF_8_9_BYTES   | A UTF-8 field with a value that is 9 bytes long.                                                                                           |
+| 84         | UTF_8_10_BYTES  | A UTF-8 field with a value that is 10 bytes long.                                                                                          |
+| 85         | UTF_8_11_BYTES  | A UTF-8 field with a value that is 11 bytes long.                                                                                          |
+| 86         | UTF_8_12_BYTES  | A UTF-8 field with a value that is 12 bytes long.                                                                                          |
+| 87         | UTF_8_13_BYTES  | A UTF-8 field with a value that is 13 bytes long.                                                                                          |
+| 88         | UTF_8_14_BYTES  | A UTF-8 field with a value that is 14 bytes long.                                                                                          |
+| 89         | UTF_8_15_BYTES  | A UTF-8 field with a value that is 15 bytes long.                                                                                          |
+| 90         | UTF_8_1_LENGTH_BYTES | A UTF-8 field that uses 1 length byte to represent the length of the field value.                                                          |
+| 91         | UTF_8_2_LENGTH_BYTES | A UTF-8 field that uses 2 length byte to represent the length of the field value.                                                          |
+| 92         | UTF_8_3_LENGTH_BYTES | A UTF-8 field that uses 3 length byte to represent the length of the field value.                                                          |
+| 93         | UTF_8_4_LENGTH_BYTES | A UTF-8 field that uses 4 length byte to represent the length of the field value.                                                          |
+| 94         | UTF_8_5_LENGTH_BYTES | A UTF-8 field that uses 5 length byte to represent the length of the field value.                                                          |
+| 95         | UTF_8_6_LENGTH_BYTES | A UTF-8 field that uses 6 length byte to represent the length of the field value.                                                          |
+| 96         | UTF_8_7_LENGTH_BYTES | A UTF-8 field that uses 7 length byte to represent the length of the field value.                                                          |
+| 97         | UTF_8_8_LENGTH_BYTES | A UTF-8 field that uses 8 length byte to represent the length of the field value.                                                          |
+| 98         | UTC_NULL        | A UTC field with a null value.                                                                                                             |
+| 99         | UTC_2_BYTES     | A UTC field with only a year specified - in its 2 bytes.                                                                                   |
+| 100        | UTC_3_BYTES     | A UTC field with a year and month specified - in its 3 bytes.                                                                              |
+| 101        | UTC_4_BYTES     | A UTC field with a year, month and day specified - in its 4 bytes.                                                                         |
+| 102        | UTC_5_BYTES     | A UTC field with a year, month, day and hour specified - in its 5 bytes.                                                                   |
+| 103        | UTC_6_BYTES     | A UTC field with a year, month, day, hour and minutes specified - in its 6 bytes.                                                          |
+| 104        | UTC_7_BYTES     | A UTC field with a year, month, day, hour, minute and seconds specified - in its 7 bytes.                                                  |
+| 105        | UTC_8_BYTES     | A UTC field with a UTC timestamp in milliseconds in its 8 bytes.                                                                           |
+| 106        | UTC_9_BYTES     | A UTC field with a year, month, day, hour, minutes, seconds + milliseconds specified - in its 9 bytes.                                     |
+| 107        | UTC_10_BYTES    | A UTC field with a year, month, day, hour, minutes, seconds + nanoseconds specified - in its 10 bytes.                                     |
+| 108        | COPY_1_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 1 byte to represent the relative offset.       |
+| 109        | COPY_2_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 2 bytes to represent the relative offset.      |
+| 110        | COPY_3_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 3 bytes to represent the relative offset.      |
+| 111        | COPY_4_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 4 bytes to represent the relative offset.      |
+| 112        | COPY_5_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 5 bytes to represent the relative offset.      |
+| 113        | COPY_6_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 6 bytes to represent the relative offset.      |
+| 114        | COPY_7_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 7 bytes to represent the relative offset.      |
+| 115        | COPY_8_BYTES    | A copy of another field found a relative number of bytes earlier in this PDE stream - using 8 bytes to represent the relative offset.      |
+| 116        | REFERENCE_1_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 1 byte to represent the relative offset.  |
+| 117        | REFERENCE_2_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 2 bytes to represent the relative offset. |
+| 118        | REFERENCE_3_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 3 bytes to represent the relative offset. |
+| 119        | REFERENCE_4_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 4 bytes to represent the relative offset. |
+| 120        | REFERENCE_5_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 5 bytes to represent the relative offset. |
+| 121        | REFERENCE_6_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 6 bytes to represent the relative offset. |
+| 122        | REFERENCE_7_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 7 bytes to represent the relative offset. |
+| 123        | REFERENCE_8_BYTES | A reference to another field found a relative number of bytes earlier in this PDE stream - using 8 bytes to represent the relative offset. |
+| 124        | KEY_NULL        | A key field with a null value.                                                                                                             |
+| 125        | KEY_0_BYTES     | A key field with an empty value.                                                                                                           |
+| 126        | KEY_1_BYTES     | A key field with a 1 byte value.                                                                                                           |
+| 127        | KEY_2_BYTES     | A key field with a 2 byte value.                                                                                                           |
+| 128        | KEY_3_BYTES     | A key field with a 3 byte value.                                                                                                           |
+| 129        | KEY_4_BYTES     | A key field with a 4 byte value.                                                                                                           |
+| 130        | KEY_5_BYTES     | A key field with a 5 byte value.                                                                                                           |
+| 131        | KEY_6_BYTES     | A key field with a 6 byte value.                                                                                                           |
+| 132        | KEY_7_BYTES     | A key field with a 7 byte value.                                                                                                           |
+| 133        | KEY_8_BYTES     | A key field with a 8 byte value.                                                                                                           |
+| 134        | KEY_9_BYTES     | A key field with a 9 byte value.                                                                                                           |
+| 135        | KEY_10_BYTES    | A key field with a 10 byte value.                                                                                                          |
+| 136        | KEY_11_BYTES    | A key field with a 11 byte value.                                                                                                          |
+| 137        | KEY_12_BYTES    | A key field with a 12 byte value.                                                                                                          |
+| 138        | KEY_13_BYTES    | A key field with a 13 byte value.                                                                                                          |
+| 139        | KEY_14_BYTES    | A key field with a 14 byte value.                                                                                                          |
+| 140        | KEY_15_BYTES    | A key field with a 15 byte value.                                                                                                          |
+| 141        | KEY_1_LENGTH_BYTES | A key field with 1 length byte to represent the length of its value.                                                                       |
+| 142        | KEY_2_LENGTH_BYTES | A key field with 2 length bytes to represent the length of its value.                                                                      |
+| 143        | OBJECT_NULL     | An object field with a null value.                                                                                                         |
+| 144        | OBJECT_1_LENGTH_BYTES | An object field with 1 length byte to represent the length of its value (nested fields).                                                   |
+| 145        | OBJECT_2_LENGTH_BYTES | An object field with 2 length byte to represent the length of its value (nested fields).                                                   |
+| 146        | OBJECT_3_LENGTH_BYTES | An object field with 3 length byte to represent the length of its value (nested fields).                                                   |
+| 147        | OBJECT_4_LENGTH_BYTES | An object field with 4 length byte to represent the length of its value (nested fields).                                                   |
+| 148        | OBJECT_5_LENGTH_BYTES | An object field with 5 length byte to represent the length of its value (nested fields).                                                   |
+| 149        | OBJECT_6_LENGTH_BYTES | An object field with 6 length byte to represent the length of its value (nested fields).                                                   |
+| 150        | OBJECT_7_LENGTH_BYTES | An object field with 7 length byte to represent the length of its value (nested fields).                                                   |
+| 151        | OBJECT_8_LENGTH_BYTES | An object field with 8 length byte to represent the length of its value (nested fields).                                                   |
+| 152        | TABLE_NULL      | An table field with a null value.                                                                                                          |
+| 153        | TABLE_1_LENGTH_BYTES | An table field with 1 length byte to represent the length of its value (nested fields).                                                    |
+| 154        | TABLE_2_LENGTH_BYTES | An table field with 2 length byte to represent the length of its value (nested fields).                                                    |
+| 155        | TABLE_3_LENGTH_BYTES | An table field with 3 length byte to represent the length of its value (nested fields).                                                    |
+| 156        | TABLE_4_LENGTH_BYTES | An table field with 4 length byte to represent the length of its value (nested fields).                                                    |
+| 157        | TABLE_5_LENGTH_BYTES | An table field with 5 length byte to represent the length of its value (nested fields).                                                    |
+| 158        | TABLE_6_LENGTH_BYTES | An table field with 6 length byte to represent the length of its value (nested fields).                                                    |
+| 159        | TABLE_7_LENGTH_BYTES | An table field with 7 length byte to represent the length of its value (nested fields).                                                    |
+| 160        | TABLE_8_LENGTH_BYTES | An table field with 8 length byte to represent the length of its value (nested fields).                                                    |
+| 161        | INSTRUCTION_NULL | An instruction field with a null value.                                                                                                    |
+| 162        | INSTRUCTION_1_LENGTH_BYTES | An instruction field with 1 length byte to represent the length of its value (nested fields).                                              |
+| 163        | INSTRUCTION_2_LENGTH_BYTES | An instruction field with 2 length byte to represent the length of its value (nested fields).                                                   |
+| 164        | INSTRUCTION_3_LENGTH_BYTES | An instruction field with 3 length byte to represent the length of its value (nested fields).                                                   |
+| 165        | INSTRUCTION_4_LENGTH_BYTES | An instruction field with 4 length byte to represent the length of its value (nested fields).                                                   |
+| 166        | INSTRUCTION_5_LENGTH_BYTES | An instruction field with 5 length byte to represent the length of its value (nested fields).                                                   |
+| 167        | INSTRUCTION_6_LENGTH_BYTES | An instruction field with 6 length byte to represent the length of its value (nested fields).                                                   |
+| 168        | INSTRUCTION_7_LENGTH_BYTES | An instruction field with 7 length byte to represent the length of its value (nested fields).                                                   |
+| 169        | INSTRUCTION_8_LENGTH_BYTES | An instruction field with 8 length byte to represent the length of its value (nested fields).                                                   |
+| 170 ... 230 | [ Unassigned ]  | These codes have not yet been assigned to any field.                                                                                       |
+| 231        | METADATA_NULL   | A metadata field with a null value.                                                                                                        |
+| 232        | METADATA_1_LENGTH_BYTES | A metadata field using 1 byte to represent the length of its body (value => nested fields).                                                |
+| 233        | METADATA_2_LENGTH_BYTES | A metadata field using 2 bytes to represent the length of its body (value => nested fields).                                               |
+| 234        | METADATA_3_LENGTH_BYTES | A metadata field using 3 bytes to represent the length of its body (value => nested fields).                                               |
+| 235        | METADATA_4_LENGTH_BYTES | A metadata field using 4 bytes to represent the length of its body (value => nested fields).                                               |
+| 236        | METADATA_5_LENGTH_BYTES | A metadata field using 5 bytes to represent the length of its body (value => nested fields).                                               |
+| 237        | METADATA_6_LENGTH_BYTES | A metadata field using 6 bytes to represent the length of its body (value => nested fields).                                               |
+| 238        | METADATA_7_LENGTH_BYTES | A metadata field using 7 bytes to represent the length of its body (value => nested fields).                                               |
+| 239        | METADATA_8_LENGTH_BYTES | A metadata field using 8 bytes to represent the length of its body (value => nested fields).                                               |
+| 240        | EXTENSION_B_1_BYTES | An extension B field using 1 extra byte to contain the extended field type.                                                                |
+| 241        | EXTENSION_B_2_BYTES | An extension B field using 2 extra bytes to contain the extended field type.                                                               |
+| 242        | EXTENSION_B_3_BYTES | An extension B field using 3 extra bytes to contain the extended field type.                                                               |
+| 243        | EXTENSION_B_4_BYTES | An extension B field using 4 extra bytes to contain the extended field type.                                                               |
+| 244        | EXTENSION_B_5_BYTES | An extension B field using 5 extra bytes to contain the extended field type.                                                               |
+| 245        | EXTENSION_B_6_BYTES | An extension B field using 6 extra bytes to contain the extended field type.                                                               |
+| 246        | EXTENSION_B_7_BYTES | An extension B field using 7 extra bytes to contain the extended field type.                                                               |
+| 247        | EXTENSION_B_8_BYTES | An extension B field using 8 extra bytes to contain the extended field type.                                                               |
+| 248        | EXTENSION_A_1_BYTES | An extension A field using 1 extra byte to contain the extended field type.                                                                |
+| 249        | EXTENSION_A_2_BYTES | An extension A field using 2 extra bytes to contain the extended field type.                                                               |
+| 250        | EXTENSION_A_3_BYTES | An extension A field using 3 extra bytes to contain the extended field type.                                                               |
+| 251        | EXTENSION_A_4_BYTES | An extension A field using 4 extra bytes to contain the extended field type.                                                               |
+| 252        | EXTENSION_A_5_BYTES | An extension A field using 5 extra bytes to contain the extended field type.                                                               |
+| 253        | EXTENSION_A_6_BYTES | An extension A field using 6 extra bytes to contain the extended field type.                                                               |
+| 254        | EXTENSION_A_7_BYTES | An extension A field using 7 extra bytes to contain the extended field type.                                                               |
+| 255        | EXTENSION_A_8_BYTES | An extension A field using 8 extra bytes to contain the extended field type.                                                               |
 
 
 
-## Boolean Encodings
+## Boolean
 
 Boolean PDE fields consists of just 1 byte - the field type code. There are 3 different boolean field type codes:
 
@@ -527,7 +536,7 @@ Each of these encodings are shown in hexadecimal notation with comments here:
 
 
 
-## Integer Encodings
+## Integer
 
 Integer PDE fields consists of 1 type code byte, and up to 8 value bytes.
 How many value bytes an integer field has is signaled via its type code.
@@ -565,7 +574,7 @@ FF 00 would be encoded with the least significant byte first (left-most), meanin
     0D FF01    # Negative integer field with a 511 encoded value - representing a negative value of -512
 
 
-## Float Encodings
+## Float
 
 Float PDE fields consist of 1 type code byte, and then either 0, 4 or 8 value bytes
 representing either a null value, a 4-byte floating point (float) 
@@ -769,7 +778,31 @@ The Table type code numeric values go from 153 to and including 161.
     0401 4CXXXX     # First row with a positive integer field and an UTF-8 field
     0403 4CXXXX     # Second row with a positive integer field and an UTF-8 field
     0408 4CXXXX     # Third row with a positive integer field and an UTF-8 field
+
     
+## Instruction
+An instruction field contains a Key field containing the name of the instruction, and then zero or more
+other nested PDE fields. The structure is similar to Object fields, with the one exception that the first
+field inside an instruction field must be a Key field containing the instruction name. Whatever follows
+the instruction name Key field is up to you.
+
+The instruction field is actually a case where the Polymorph Data Language (PDL) syntax has inspired 
+the Polymorph Data Encoding (PDE). PDL had instructions first. Then, seeing how useful they can be in PDL,
+I decided to add instructions to PDE too - so PDL with instructions can be converted fully to PDE and vice versa.
+
+The instruction type code numeric values go from 161 to 169.
+
+    A1      # An instruction field with the value null
+    
+    A2      # An instruction field with 1 length byte
+    07      # The length byte with a value of 07 hex (7 decimal)
+    61646472657373      # 7 bytes (hex encoded) with the ASCII values for "address"
+
+Note: The "address" instruction example above would probably contain more fields, such as the street name and number,
+the zip code and city etc. In such a case, the length would be longer than 7 bytes. 
+
+
+
 
 ## Metadata
 A metadata field represents some metadata about the data in the PDE field stream - which is not semantically
@@ -831,7 +864,7 @@ The additional field type codes is intended to be thought of as one 2^64 sized t
 Thus, the 256 types available following the EXTENSION_B_1_BYTES (240) type code - should be considered
 equal to the bottom 256 values of the 65,535 possible values that can follow an EXTENSION_B_2_BYTES (241)
 type code, and equivalent of the bottom 256 values of the 16,777,216 possible that can follow an
-EXTENSION_B_3_BYTES (242) type code.
+EXTENSION_B_3_BYTES (242) type code etc.
 
 For example, if whether your represented the additional type code 21 using 1 byte, or using 8 bytes
 (even if unnecessary) - you should consider it the same additional type code. 
@@ -840,9 +873,9 @@ Theoretically, you could consider each of the extension field type codes as sepa
 resulting in a possible 2^64 + 2^56 + 2^48 + 2^40 + 2^32 + 2^24 + 2^16 + 2^8 sized type code space
 for each of series A and B. 
 
-Using that theoretic interpretation the additional type code value 21 represented
+Using that theoretic interpretation, the additional type code value 21 represented
 using 1 byte (following an EXTENSION_B_1_BYTES (240) type code) would not be interpreted as the
-same semantic type code as if represented using 8 bytes (following an EXTENSION_B_8_BYTES (247) type code) -
+same semantic type code as 21 represented using 8 bytes (following an EXTENSION_B_8_BYTES (247) type code) -
 as these two additional type codes (21 represented using 1 byte and 8 bytes) would be interpreted as 
 belonging to separate extension type code spaces. 
 
