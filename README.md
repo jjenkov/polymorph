@@ -51,6 +51,10 @@ project can be used for commercial use cases too – both in small companies and
 - Polymorph Specifications
   - [Polymorph Data Encoding (PDE)](specifications/pde-specification.md) 
   - [Polymorph Data Language (PDL)](specifications/pdl-specification.md)
+  - [Polymorph VM Design ](specifications/vm/pvm-design.md)
+  - [Polymorph VM ISA ](specifications/vm/pvm-isa.md)
+  - [Polymorph VM ISA Encoding ](specifications/vm/pvm-isa-encoding.md)
+  
 
 - Polymorph Project Plan
   - [Task Board](https://github.com/users/jjenkov/projects/1/views/2)
@@ -112,7 +116,9 @@ The most important parts of this project are the ideas that come out of it. The 
 If the ideas are good and simple enough, there could potentially be many implementations of them – also outside 
 the Polymorph project. If the descriptions are precise enough, implementations could potentially be made using AI.
 
-Thus, the best ways to contribute to the Polymorph project are:
+Thus, the best way to contribute to the Polymorph project is to put on your software architect and product designer hat
+and contribute with:
+
 
 1) New ideas for functionality.
 2) Research into how to design and implement this new functionality.
