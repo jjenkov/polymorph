@@ -51,6 +51,10 @@ public class PdlTokenizer {
         return tokenOffsetsIndex; // return number of token offsets written into tokenOffset (=number of tokens found)
     }
 
+    public static int tokenize(byte[] source, int offset, int length, long[] tokenOffsets){
+        return tokenize_for(source, offset, length, tokenOffsets);
+    }
+
     public static int tokenize_for(byte[] source, int offset, int length, long[] tokenOffsets){
         int tokenOffsetsIndex = 0;
         int endOffset = offset + length;

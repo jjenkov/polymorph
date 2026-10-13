@@ -219,6 +219,7 @@ public class PdeFieldTypes {
         that a new PIN field added later will use the same indexes as you have used in your custom fields.
      */
 
+    // these should start from 231 instead - when extension codes are corrected
     public static final int METADATA_NULL = 232;
     public static final int METADATA_1_LENGTH_BYTES = 233;
     public static final int METADATA_2_LENGTH_BYTES = 234;
@@ -229,6 +230,7 @@ public class PdeFieldTypes {
     public static final int METADATA_7_LENGTH_BYTES = 239;
     public static final int METADATA_8_LENGTH_BYTES = 240;
 
+    // these extension codes are wrong.
     public static final int EXTENSION_1_BYTE_1 = 241;
     public static final int EXTENSION_1_BYTE_2 = 242;
     public static final int EXTENSION_1_BYTE_3 = 243;

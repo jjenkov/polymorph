@@ -13,7 +13,7 @@ public class HexUtilTest {
     public void testBinToHex() {
         byte[] bytes = new byte[]{0,1,2,3,4,5, -1, -2, -3, -4, -5};
 
-        StringBuffer hexBuffer = HexUtil.bytesToHex(bytes, 0, bytes.length, new StringBuffer());
+        StringBuilder hexBuffer = HexUtil.bytesToHex(bytes, 0, bytes.length, new StringBuilder());
         assertEquals("000102030405FFFEFDFCFB", hexBuffer.toString());
     }
 

@@ -6,4 +6,5 @@ module com.plmph.player {
     requires javafx.fxml;
     requires javafx.web;
     exports com.plmph.player;
+    exports com.plmph.cli;
 }

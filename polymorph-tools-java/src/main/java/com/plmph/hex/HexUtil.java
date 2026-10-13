@@ -37,7 +37,7 @@ public class HexUtil {
         }
     }
 
-    public static StringBuffer bytesToHex(byte[] source, int offset, int length, StringBuffer dest) {
+    public static StringBuilder bytesToHex(byte[] source, int offset, int length, StringBuilder dest) {
         for(int i=offset, n=offset + length; i < n; i++) {
             int byteVal = 0xFF & source[i];
 

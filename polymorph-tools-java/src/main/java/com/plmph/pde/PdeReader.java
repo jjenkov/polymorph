@@ -1,5 +1,6 @@
 package com.plmph.pde;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
@@ -74,7 +75,7 @@ public class PdeReader {
         this.fieldType = 0xFF & this.source[offset];
 
         // Extract number of length bytes (fieldLengthLength) and fixed value length (fieldValueLength) from length spec
-        // Note: One of these number will always be 0
+        // Note: One of these numbers will always be 0
         int fieldLengthSpec    = 0xFF & this.lengthSpecs[this.fieldType];
         this.fieldLengthLength = fieldLengthSpec >> 4;   // no of length bytes extracted from length spec
         this.fieldValueLength  = 0x0F & fieldLengthSpec; // fixed value length extracted from length spec
@@ -100,20 +101,18 @@ public class PdeReader {
         this.intoIndexStack[this.intoIndexStackIndex++] = stackValue;
 
         this.scopeEndOffset = this.nextOffset;
-        this.nextOffset = this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength;  //restart nextOffset counting from inside composite field.
-
-        // should offset not be set to something? - first byte of value (body) - of composite field?
-        // or will that happen when next() is called after a moveInto() call ?
-        //this.offset += this.fieldLengthLength;Er
+        this.nextOffset = this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength;  //restart nextOffset inside composite field body.
     }
 
     public void moveOutOf() {
         long stackValue = this.intoIndexStack[--this.intoIndexStackIndex];
 
         this.scopeEndOffset = (int) (0xFFFF_FFFF & stackValue);
-        this.offset         = (int) (0xFFFF_FFFF & (stackValue >> 32));  // todo Is this operation necessary? Or should this.nextOffset just be set to this value directly, before calling next() ?
+        this.offset         = (int) (0xFFFF_FFFF & (stackValue >> 32));
+        // todo Is the above operation necessary? ( this.offset = ... )
+        //  Or should this.nextOffset just be set to this value directly, before calling next() ?
 
-        this.nextOffset = this.offset;  //restart nextIndex counting from outer object.
+        this.nextOffset = this.offset;  //restart nextOffset counting from outer object.
         next();
     }
 
@@ -200,6 +199,18 @@ public class PdeReader {
         return Double.longBitsToDouble(value);
     }
 
+    public byte[] readBytes(){
+        if(this.fieldType == PdeFieldTypes.BYTES_NULL){
+            return null;
+        }
+        if(this.fieldType == PdeFieldTypes.BYTES_0_BYTES){
+            return new byte[0];
+        }
+        byte[] bytes = new byte[this.fieldValueLength];
+        System.arraycopy(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, bytes, 0, this.fieldValueLength);
+        return bytes;
+    }
+
     public int readBytes(byte[] dest, int offset){
         if(this.fieldType == PdeFieldTypes.BYTES_NULL || this.fieldType == PdeFieldTypes.BYTES_0_BYTES){
             return -1;
@@ -210,6 +221,36 @@ public class PdeReader {
 
     public int readBytes(byte[] dest, int offset, int length){
         if(this.fieldType == PdeFieldTypes.BYTES_NULL || this.fieldType == PdeFieldTypes.BYTES_0_BYTES){
+            return -1;
+        }
+        int lengthToRead = Math.min(length, this.fieldValueLength);
+
+        System.arraycopy(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, dest, offset, Math.min(this.fieldValueLength, lengthToRead));
+        return lengthToRead;
+    }
+
+    public byte[] readAscii(){
+        if(this.fieldType == PdeFieldTypes.ASCII_NULL){
+            return null;
+        }
+        if(this.fieldType == PdeFieldTypes.ASCII_0_BYTES){
+            return new byte[0];
+        }
+        byte[] bytes = new byte[this.fieldValueLength];
+        System.arraycopy(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, bytes, 0, this.fieldValueLength);
+        return bytes;
+    }
+
+    public int readAscii(byte[] dest, int offset){
+        if(this.fieldType == PdeFieldTypes.ASCII_NULL || this.fieldType == PdeFieldTypes.ASCII_0_BYTES){
+            return -1;
+        }
+        System.arraycopy(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, dest, offset, this.fieldValueLength);
+        return this.fieldValueLength;
+    }
+
+    public int readAscii(byte[] dest, int offset, int length){
+        if(this.fieldType == PdeFieldTypes.ASCII_NULL || this.fieldType == PdeFieldTypes.ASCII_0_BYTES){
             return -1;
         }
         int lengthToRead = Math.min(length, this.fieldValueLength);
@@ -301,12 +342,18 @@ public class PdeReader {
     }
 
 
+    public int readKey(byte[] dest, int destOffset) {
+        System.arraycopy(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, dest, destOffset, this.fieldValueLength);
+        return this.fieldValueLength;
+    }
 
+    public String readKeyAsUtf8String(){
+        return new String(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, this.fieldValueLength, StandardCharsets.UTF_8);
+    }
 
-
-
-
-
+    public String readKeyAsAsciiString(){
+        return new String(this.source, this.offset + FIELD_TYPE_BYTE_COUNT + this.fieldLengthLength, this.fieldValueLength, StandardCharsets.US_ASCII);
+    }
 
 
 }

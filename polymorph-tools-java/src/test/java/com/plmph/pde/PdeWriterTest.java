@@ -765,7 +765,7 @@ public class PdeWriterTest {
         assertEquals('4', (char) (0xFF & dest[13]));
         assertEquals('5', (char) (0xFF & dest[14]));
 
-        System.out.println(HexUtil.bytesToHex(writer.dest, 0, writer.offset, new StringBuffer()));
+        System.out.println(HexUtil.bytesToHex(writer.dest, 0, writer.offset, new StringBuilder()));
     }
 
 
