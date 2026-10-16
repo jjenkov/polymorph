@@ -41,6 +41,7 @@ The benefits of micro platforms over traditional applications or REST services a
   - Multiple responses from a single script.
   - Streaming of service responses is natural.
   - Enables emergent behaviour.
+  - AI can interact with your application via scripts.
 - Simpler software:
   - Decompositional simplification of services. Similar to decompositional contraction in compositional design.
 
@@ -65,6 +66,11 @@ Each of these responses could be streamed back to the client.
 Giving your users a script language interface to your software enables your users to come up with new ways
 to use your software. This is also known as emergent behaviour: Behaviour you did not anticipate when you designed
 your software.
+
+### AI Can Interact With Your Application via Scripts
+AI can easily learn how to write scripts in the language the embedded VM understands - and AI can also learn which 
+external functions your application has plugged into the VM. Thereafter, AI can write scripts that interact 
+with your application via the VM.
 
 ### Decompositional Simplification of Services
 Imagine you have a REST service that can:
