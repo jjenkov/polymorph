@@ -344,27 +344,29 @@ Here is an example, using hexadecimal encoding:
 ## ife
 In Pasm an ife can be written like this:
 
-    ife(
-        (...)
-        (...)
+    (
+        ife(
+            nop()
+            else()
+            nop()
+        )
     )
+
+else() is not an ISA instruction. It compiles to a leave instruction and fills the else offset
+of the parent ife.
 
 That form is compiled into the following actual instructions:
 
     tsb()
         ife()
-            tsb()
-                nop()
-            tse()
+            nop()
             leave()
-            tsb()
-                nop()
-            tse()
+            nop()
     tse()
 
-The entire if-construct is nested inside a triple scope. Each body is its own triple scope.
-The leave instruction between the bodies is explicit – and skips over the "else" block in case the
-condition is true and the "then" block was executed.
+The entire if-construct is nested inside a triple scope.
+The leave instruction is emitted by else(). It skips the else block when the condition is true
+and the then instructions were executed.
 
 
 The ife instruction is encoded using:
@@ -373,26 +375,20 @@ The ife instruction is encoded using:
 - 2 bytes holding the relative offset of the else block.
 
 The offset is little endian. It is not encoded with PDE.
-It is the number of bytes from the first instruction after ife to the tsb that begins the else block.
-Those 2 bytes are reserved by ife and filled when that tsb is written.
+It is the number of bytes from the first instruction after ife to the first instruction of the else block.
+Those 2 bytes are reserved by ife and filled when else() is compiled.
 
-Here is the expanded Pasm encoded, using hexadecimal encoding:
+Here is the Pasm above encoded, using hexadecimal encoding:
 
     18          # parent tsb
-    0E 00       # relative offset 14, to the parent tse
+    06 00       # relative offset 6, to the parent tse
     1F          # ife
-    06 00       # relative offset 6, to the else tsb
-    18          # then tsb
-    01 00       # relative offset 1, to the then tse
-    00          # nop
-    19          # then tse
-    1A          # leave
-    18          # else tsb
-    01 00       # relative offset 1, to the else tse
-    00          # nop
-    19          # else tse
+    02 00       # relative offset 2, to the first else instruction
+    00          # nop, then block
+    1A          # leave, emitted by else()
+    00          # nop, else block
     19          # parent tse
 
-The relative offset of the else block is 6.
-The parent tsb stores relative offset 14.
+The relative offset of the else block is 2.
+The parent tsb stores relative offset 6.
 

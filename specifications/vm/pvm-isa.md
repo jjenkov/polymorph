@@ -353,39 +353,27 @@ However, we do not explicitly write "then", so the real syntax is like this:
 
 
 ### ife
-The ife instruction executes an internally nested block of code if the value at the top
+The ife instruction executes the instructions that follow it when the value at the top
 of the expression stack is true.
-If that value is false, the ife instruction can execute another block of code (the else block).
+When that value is false, execution jumps to the else block.
 The expression stack is left unchanged.
 
-A parent triple scope encloses the ife instruction and both body blocks.
-Each body block is its own triple scope.
-The leave instruction between the body blocks jumps to the tse instruction that ends
-the parent triple scope.
+A parent triple scope encloses the ife instruction, the then instructions, and the else instructions.
 
-The ife instruction follows this structure:
-
-    tsb
-        ife(
-            then( ... )
-            leave()
-            else( ... )
-        )
-    tse
-
-However, we do not explicitly write "then" and "else", so the real syntax is this:
+In Pasm, else() marks the start of the else block. else() is not an ISA instruction.
+It compiles to a leave instruction, and it fills the else offset stored in the parent ife.
+That leave jumps to the tse that ends the parent triple scope, so a true condition skips the else block.
 
     (
         ife(
-            ( ... )
-            leave()
-            ( ... )
+            nop()
+            else()
+            nop()
         )
     )
 
-The ife instruction needs to know in the beginning of its binary encoding where the else-block
-starts. If the condition is false, the ife instruction can jump directly to the
-else block and execute that.
+The ife instruction stores the relative offset of the first instruction of the else block.
+When the condition is false, ife jumps directly to that instruction.
 
 
 ### switchi
